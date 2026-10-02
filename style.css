@@ -217,6 +217,9 @@ a { color: inherit; }
 .network__stat span { font-weight: 600; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
 .gallery img { cursor: zoom-in; }
+.photo--wide { grid-column: span 2; }
+.photo--wide img { aspect-ratio: 16 / 9; }
+@media (max-width: 640px) { .photo--wide { grid-column: auto; } .photo--wide img { aspect-ratio: 4 / 3; } }
 
 /* ===== Cards + Form ===== */
 .card { background: var(--white); border: 3px solid var(--black); border-radius: var(--radius); padding: 28px; box-shadow: 8px 8px 0 var(--black); }
