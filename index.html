@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
 
@@ -388,9 +388,34 @@
         </div>
         <form class="card form" id="franchiseForm" novalidate>
           <h3 data-i18n="form.title">Franchise Enquiry</h3>
-          <label><span data-i18n="form.name">Full name</span><input name="name" autocomplete="name" required /></label>
-          <label><span data-i18n="form.phone">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
-          <label><span data-i18n="form.city">City / Township</span><input name="city" required /></label>
+          <label><span><span data-i18n="form.name">Full name</span> <b class="req">*</b></span><input name="name" autocomplete="name" required /></label>
+          <label><span><span data-i18n="form.phone">Phone</span> <b class="req">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" required /></label>
+          <div class="form__row">
+            <label><span><span data-i18n="form.city">City</span> <b class="req">*</b></span>
+              <select name="city" required>
+              <option value="" data-i18n="form.cityPick">Select city</option>
+              <option value="Yangon" data-i18n="city.yangon">Yangon</option>
+              <option value="Mandalay" data-i18n="city.mandalay">Mandalay</option>
+              <option value="Naypyitaw" data-i18n="city.naypyitaw">Naypyitaw</option>
+              <option value="Bago" data-i18n="city.bago">Bago</option>
+              <option value="Mawlamyine" data-i18n="city.mawlamyine">Mawlamyine</option>
+              <option value="Taunggyi" data-i18n="city.taunggyi">Taunggyi</option>
+              <option value="Pathein" data-i18n="city.pathein">Pathein</option>
+              <option value="Pyay" data-i18n="city.pyay">Pyay</option>
+              <option value="Magway" data-i18n="city.magway">Magway</option>
+              <option value="Monywa" data-i18n="city.monywa">Monywa</option>
+              <option value="Meiktila" data-i18n="city.meiktila">Meiktila</option>
+              <option value="Hpa-An" data-i18n="city.hpaan">Hpa-An</option>
+              <option value="Dawei" data-i18n="city.dawei">Dawei</option>
+              <option value="Myeik" data-i18n="city.myeik">Myeik</option>
+              <option value="Myitkyina" data-i18n="city.myitkyina">Myitkyina</option>
+              <option value="Lashio" data-i18n="city.lashio">Lashio</option>
+              <option value="Sittwe" data-i18n="city.sittwe">Sittwe</option>
+              <option value="Other" data-i18n="city.other">Other</option>
+              </select>
+            </label>
+            <label><span data-i18n="form.township">Township</span><input name="township" autocomplete="address-level3" /></label>
+          </div>
           <label><span data-i18n="form.format">Format</span>
           <select name="format">
             <option value="Kiosk" data-i18n="opt.kiosk">Kiosk</option><option value="Mall counter" data-i18n="opt.mall">Mall counter</option><option value="Shopfront" data-i18n="opt.shop">Shopfront</option><option value="Not sure yet" data-i18n="opt.unsure">Not sure yet</option>
@@ -399,6 +424,10 @@
           <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3"></textarea></label>
           <button class="btn btn--dark btn--full" type="submit" id="formBtn" data-i18n="form.send">Send Enquiry</button>
           <p class="form__msg" id="formMsg" role="status"></p>
+          <div class="form__fallback" id="formFallback" hidden>
+            <a class="btn btn--dark" id="fbEmail" href="#" data-i18n="form.fbEmail">✉️ Send by Email</a>
+            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener" data-i18n="form.fbMessenger">💬 Message on Messenger</a>
+          </div>
         </form>
       </div>
     </div>
@@ -439,7 +468,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=6"></script>
-  <script src="script.js?v=6"></script>
+  <script src="i18n.js?v=7"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

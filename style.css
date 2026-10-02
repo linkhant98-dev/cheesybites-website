@@ -274,6 +274,12 @@ a { color: inherit; }
 .form input, .form select, .form textarea { font: inherit; padding: 10px 14px; border: 2px solid var(--black); border-radius: 12px; background: var(--cream); }
 .form input:focus, .form select:focus, .form textarea:focus { outline: 3px solid var(--yellow-deep); }
 .form input.invalid { border-color: #d62828; background: #ffecec; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form .req { color: #d62828; }
+.form select.invalid { border-color: #d62828; background: #ffecec; }
+.form__fallback { display: flex; flex-wrap: wrap; gap: 10px; }
+.form__fallback[hidden] { display: none; }
+.form__fallback .btn { padding: 10px 18px; font-size: .9rem; }
 .form__msg { font-weight: 600; min-height: 1.2em; }
 
 /* ===== Visit ===== */

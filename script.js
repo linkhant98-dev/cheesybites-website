@@ -111,21 +111,35 @@ $('#tabs').addEventListener('click', e => {
 });
 
 // ===== Franchise form → email to both addresses =====
-$('#franchiseForm').addEventListener('submit', async e => {
+const form = $('#franchiseForm');
+const fallback = $('#formFallback');
+
+function validate(field) {
+  const v = field.value.trim();
+  const ok = field.name === 'phone' ? v.replace(/\D/g, '').length >= 7 : v !== '';
+  field.classList.toggle('invalid', !ok);
+  return ok;
+}
+
+form.addEventListener('submit', async e => {
   e.preventDefault();
-  const form = e.target;
   const msg = $('#formMsg');
   const btn = $('#formBtn');
   const M = I18N_MSG[lang];
+  fallback.hidden = true;
+
   const required = $$('[required]', form);
-  required.forEach(f => f.classList.toggle('invalid', !f.value.trim()));
-  if (required.some(f => !f.value.trim())) {
-    msg.textContent = M.required;
+  const results = required.map(validate);
+  if (results.includes(false)) {
+    const onlyPhoneWrong = results.filter(r => !r).length === 1 && form.phone.classList.contains('invalid') && form.phone.value.trim();
+    msg.textContent = onlyPhoneWrong ? M.phone : M.required;
+    required.find(f => f.classList.contains('invalid')).focus();
     return;
   }
 
   const d = Object.fromEntries(new FormData(form));
-  const subject = `Franchise Enquiry: ${d.name} (${d.city})`;
+  const place = d.township ? `${d.township}, ${d.city}` : d.city;
+  const subject = `Franchise Enquiry: ${d.name} (${place})`;
   btn.disabled = true;
   msg.textContent = M.sending;
 
@@ -136,7 +150,8 @@ $('#franchiseForm').addEventListener('submit', async e => {
       body: JSON.stringify({
         Name: d.name,
         Phone: d.phone,
-        'City / Township': d.city,
+        City: d.city,
+        Township: d.township || '-',
         Format: d.format,
         Message: d.message || '-',
         'Website language': lang === 'my' ? 'Myanmar' : 'English',
@@ -154,19 +169,21 @@ $('#franchiseForm').addEventListener('submit', async e => {
     msg.textContent = M.sent;
     form.reset();
   } catch (err) {
-    // Fallback: open the visitor's email app addressed to both recipients
-    const body = `Name: ${d.name}\nPhone: ${d.phone}\nCity / Township: ${d.city}\nFormat: ${d.format}\n\n${d.message}`;
-    window.location.href = `mailto:${ENQUIRY_TO},${ENQUIRY_CC}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Couldn't send online: offer email (pre-filled, to both addresses) or Messenger
+    const body = `Name: ${d.name}\nPhone: ${d.phone}\nCity: ${d.city}\nTownship: ${d.township || '-'}\nFormat: ${d.format}\n\n${d.message}`;
+    $('#fbEmail').href = `mailto:${ENQUIRY_TO},${ENQUIRY_CC}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     msg.textContent = M.fallback;
+    fallback.hidden = false;
   } finally {
     btn.disabled = false;
   }
 });
 
-// Clear the red highlight as soon as a field is filled in
-$$('#franchiseForm [required]').forEach(f => f.addEventListener('input', () => {
-  if (f.value.trim()) f.classList.remove('invalid');
-}));
+// Clear the red highlight as soon as a field is fixed
+$$('[required]', form).forEach(f => {
+  f.addEventListener('input', () => f.classList.contains('invalid') && validate(f));
+  f.addEventListener('change', () => f.classList.contains('invalid') && validate(f));
+});
 
 // ===== Lightbox for outlet photos =====
 const lightbox = $('#lightbox');
