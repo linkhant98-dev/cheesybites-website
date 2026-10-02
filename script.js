@@ -6,18 +6,24 @@ const ENQUIRY_CC = 'linkhant98@gmail.com';
 // Product listing (no prices). `crop` picks one pack out of the wholesale poster.
 // `my` holds the Myanmar translation of tag / name / desc / where.
 const PRODUCTS = [
-  { cat: 'fresh', img: 'corndogs.jpg',
-    tag: 'Signature', name: 'Cheese Sticks & Corndogs', desc: 'Crispy golden batter around a stretchy mozzarella or sausage core. The cheese pull we are known for.', where: 'Our outlets & franchise outlets',
-    my: { tag: 'အထူးလက်ရာ', name: 'ချိစ်ချောင်းနှင့် ကော်န်ဒေါ့', desc: 'ကြွပ်ရွရွ ရွှေဝါရောင်အလွှာအတွင်း ဆွဲဆန့်ရသော မိုဇာရဲလားချိစ် သို့မဟုတ် အသားချောင်း။ ကျွန်ုပ်တို့ နာမည်ကြီးသော Cheese Pull အရသာ။', where: 'ကျွန်ုပ်တို့ဆိုင်ခွဲများနှင့် ဖရန်ချိုက်စ်ဆိုင်များ' } },
+  { cat: 'fresh', img: 'fb/cheesepull.jpg', pos: 'center 30%',
+    tag: 'Signature', name: 'Cheese Sticks & Corndogs', desc: 'Crispy outside, cheesy inside. Golden batter around a thick core of stretchy mozzarella or sausage, made for the perfect cheese pull.', where: 'Our outlets & franchise outlets',
+    my: { tag: 'အထူးလက်ရာ', name: 'ချိစ်ချောင်းနှင့် ကော်န်ဒေါ့', desc: 'အပြင်ကြွပ်ကြွပ်၊ အထဲချိစ်ပြည့်ပြည့်။ ရွှေဝါရောင်အလွှာအတွင်း ဆွဲဆန့်ရသော မိုဇာရဲလားချိစ် သို့မဟုတ် အသားချောင်း။ Cheese Pull အရသာ အပြည့်။', where: 'ကျွန်ုပ်တို့ဆိုင်ခွဲများနှင့် ဖရန်ချိုက်စ်ဆိုင်များ' } },
+  { cat: 'fresh', img: 'fb/longpotato.jpg', pos: 'center 55%',
+    tag: 'Signature · No chemicals', name: 'Signature Long Potato', desc: 'Our long potato sticks, found only at Cheesy Bites. Made from natural potatoes that are boiled first, then shaped step by step. No chemicals, so they are safe for kids too. Crispy, cheesy and made fresh every time.', where: 'Outlets & Ocean supermarkets',
+    my: { tag: 'အထူးလက်ရာ · ဓာတုမပါ', name: 'Signature အာလူးချောင်းရှည်', desc: 'Cheesy Bites မှာသာ ရနိုင်သော မွမွရွရွ အာလူးချောင်းရှည်။ သဘာဝအာလူးကို ပြုတ်ပြီးမှ အဆင့်ဆင့် ပြုလုပ်ထားခြင်းဖြစ်ပြီး Chemical မပါသဖြင့် ကလေးများလည်း အန္တရာယ်ကင်းကင်း စားနိုင်ပါသည်။', where: 'ဆိုင်ခွဲများနှင့် Ocean စူပါမားကတ်များ' } },
+  { cat: 'fresh', img: 'fb/combo.jpg', pos: 'center 55%',
+    tag: 'Best seller', name: 'Best Seller Combo Sets', desc: 'Crispy chicken bites, corndogs, fries & sausage and crispy chicken, served together in one set. Great for sharing.', where: 'Our outlets & delivery partners',
+    my: { tag: 'အရောင်းရဆုံး', name: 'Best Seller Combo Set များ', desc: 'ကြွပ်ကြွပ် ကြက်သားတုံး၊ ကော်န်ဒေါ့၊ အာလူးကြော်နှင့် အသားချောင်း၊ ကြက်ကြော်ကြွပ် တို့ကို တစ်စုံတည်း မျှဝေစားနိုင်ပါသည်။', where: 'ဆိုင်ခွဲများနှင့် ပို့ဆောင်ရေးမိတ်ဖက်များ' } },
   { cat: 'fresh', img: 'burger.jpg',
     tag: 'Outlet favourite', name: 'Cheesy Bites Burgers', desc: 'Juicy patties, melted cheese and our house sauce in a soft sesame bun.', where: 'Our outlets & delivery partners',
     my: { tag: 'ဆိုင်တွင် လူကြိုက်များ', name: 'Cheesy Bites ဘာဂါ', desc: 'အရည်ရွှမ်းသော အသားပြား၊ အရည်ပျော်ချိစ်နှင့် ဆိုင်ကိုယ်ပိုင်ဆော့စ်ကို နှမ်းစေ့ပေါင်မုန့်အပျော့ထဲ ညှပ်ထားပါသည်။', where: 'ဆိုင်ခွဲများနှင့် ပို့ဆောင်ရေးမိတ်ဖက်များ' } },
-  { cat: 'fresh', img: 'fries.jpg',
-    tag: 'Ready to eat', name: 'Fries & Potato Sticks', desc: 'Crispy fries and potato sticks, great on their own or with cheese sauce.', where: 'Outlets & Ocean supermarkets',
-    my: { tag: 'အသင့်စား', name: 'အာလူးကြော်နှင့် အာလူးချောင်း', desc: 'ကြွပ်ရွသော အာလူးကြော်နှင့် အာလူးချောင်းများ။ ဒီအတိုင်းစားလည်း ကောင်း၊ ချိစ်ဆော့စ်နှင့် တွဲစားလည်း ကောင်းပါသည်။', where: 'ဆိုင်ခွဲများနှင့် Ocean စူပါမားကတ်များ' } },
   { cat: 'frozen', img: 'frozen.jpg',
     tag: 'Ready to fry', name: 'Frozen Cheese Sticks & Corndogs', desc: 'The outlet taste at home. Fry straight from the freezer in about five minutes.', where: 'Ocean, City Mart & Marketplace',
     my: { tag: 'အသင့်ကြော်', name: 'အေးခဲ ချိစ်ချောင်းနှင့် ကော်န်ဒေါ့', desc: 'ဆိုင်ကအရသာအတိုင်း အိမ်မှာ စားနိုင်ပါပြီ။ ရေခဲသေတ္တာထဲမှ တိုက်ရိုက် ငါးမိနစ်ခန့် ကြော်ရုံသာ။', where: 'Ocean၊ City Mart နှင့် Marketplace' } },
+  { cat: 'frozen', img: 'fb/readytofry.jpg', pos: 'center 45%',
+    tag: 'Ready in minutes', name: 'Frozen Chicken Popcorn & Long Potato', desc: 'Crispy, cheesy and delicious. Keep frozen, then fry and enjoy in minutes. A perfect combo snack or meal for home, shops and franchise outlets.', where: 'Order via Messenger · franchise supply',
+    my: { tag: 'မိနစ်ပိုင်းအတွင်း အသင့်', name: 'အေးခဲ ချစ်ကင်ပေါ့ပ်ကော်န်နှင့် အာလူးချောင်းရှည်', desc: 'ကြွပ်ရွ၊ ချိစ်ပါပြီး အရသာရှိသည်။ အေးခဲထားပြီး မိနစ်ပိုင်းအတွင်း ကြော်စားနိုင်သည်။ အိမ်၊ ဆိုင်နှင့် ဖရန်ချိုက်စ်ဆိုင်များအတွက် အကောင်းဆုံး Combo။', where: 'Messenger မှ မှာယူနိုင် · ဖရန်ချိုက်စ် ထောက်ပံ့မှု' } },
   { cat: 'wholesale', img: 'wholesale.jpg', crop: '2% 52%',
     tag: '1 kg pack', name: 'Potato Ball', desc: 'Bite-size potato balls with a soft centre. Fried crisp in minutes.', where: 'Makro Myanmar',
     my: { tag: '၁ ကီလို ထုပ်', name: 'အာလူးလုံး', desc: 'အလယ်ပျော့ပျော့ပါသော တစ်ကိုက်စာ အာလူးလုံးများ။ မိနစ်ပိုင်းအတွင်း ကြွပ်ကြွပ် ကြော်နိုင်ပါသည်။', where: 'Makro Myanmar' } },
@@ -81,7 +87,7 @@ function renderProducts(filter = 'all') {
       const t = lang === 'my' ? p.my : p;
       const style = p.crop
         ? `background-image:url(assets/img/${p.img});background-size:400%;background-position:${p.crop}`
-        : `background-image:url(assets/img/${p.img})`;
+        : `background-image:url(assets/img/${p.img})${p.pos ? `;background-position:${p.pos}` : ''}`;
       return `
       <article class="item" style="animation-delay:${idx * 50}ms">
         <div class="item__img" style="${style}" role="img" aria-label="${t.name}"><span class="item__tag">${t.tag}</span></div>

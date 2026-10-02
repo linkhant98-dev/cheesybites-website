@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
 
@@ -185,6 +185,16 @@
       <h2 class="section__title" data-i18n="prod.title">Our <span>Products</span></h2>
       <p class="section__sub" data-i18n="prod.sub">Fresh from our outlets, frozen for your home, or in bulk for your business.</p>
 
+      <div class="fav-banner">
+        <img src="assets/img/fb/favourites.jpg" alt="Cheesy Bites burger, chicken popcorn with sausage, cheese fries and corndogs" loading="lazy" />
+        <div class="fav-banner__text">
+          <p class="eyebrow" data-i18n="fav.eyebrow">Fan favourites</p>
+          <h3 data-i18n="fav.title">What's your <span>favourite one?</span></h3>
+          <p data-i18n="fav.body">Burgers, chicken popcorn with sausage, cheesy long potato and our famous corndogs. Everything is crispy, cheesy and made fresh every time. It's comfort food on the go.</p>
+          <ul class="fav-banner__chips" data-i18n="fav.chips"><li>🧀 Crispy outside, cheesy inside</li><li>🥔 No-chemical long potato</li><li>🔥 Made fresh every time</li></ul>
+        </div>
+      </div>
+
       <div class="tabs" id="tabs">
         <button class="tab is-active" data-filter="all" data-i18n="tab.all">All</button>
         <button class="tab" data-filter="fresh" data-i18n="cat.fresh">Ready to Eat</button>
@@ -293,32 +303,104 @@
 
   <!-- ===== FRANCHISE ===== -->
   <section class="section section--yellow" id="franchise">
-    <div class="container split split--reverse">
-      <div class="split__text">
-        <p class="eyebrow eyebrow--dark" data-i18n="fr.eyebrow">Grow with us</p>
-        <h2 class="section__title section__title--left section__title--dark" data-i18n="fr.title">Own a Cheesy Bites <span>Franchise</span></h2>
-        <ul class="checks" data-i18n="fr.checks">
-          <li>A proven menu and a brand customers already know</li>
-          <li>Frozen supply that's ready to fry, so you don't need a complicated kitchen</li>
-          <li>Fits a kiosk, mall counter, or shopfront</li>
-          <li>Training, branding, and marketing support</li>
-          <li>Join 58+ franchise partners across Myanmar</li>
-        </ul>
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="fr-hero">
+        <div class="fr-hero__text">
+          <p class="eyebrow eyebrow--dark" data-i18n="fr.eyebrow">Cheesy Bites Franchise</p>
+          <h2 class="section__title section__title--left section__title--dark" data-i18n="fr.title">Dream of your own shop? <span>Start today.</span></h2>
+          <p class="lead" data-i18n="fr.lead">Want your own food business but don't know where to start? With Cheesy Bites you don't start alone. We help you from opening day to running the shop, with products, training and promotion.</p>
+          <ul class="fr-proof">
+            <li><strong>58+</strong><span data-i18n="fr.proof1">franchise outlets</span></li>
+            <li><strong>58K+</strong><span data-i18n="fr.proof2">Facebook fans</span></li>
+            <li><strong>~3</strong><span data-i18n="fr.proof3">minutes to fry</span></li>
+          </ul>
+          <div class="hero__cta">
+            <a href="#franchiseForm" class="btn btn--dark" data-i18n="fr.cta1">Send an Enquiry</a>
+            <a href="https://m.me/cheesybitesygn" class="btn btn--ghost" target="_blank" rel="noopener" data-i18n="fr.cta2">Ask on Messenger</a>
+          </div>
+        </div>
+        <figure class="photo fr-hero__photo">
+          <img src="assets/img/fb/franchise.jpg" alt="Cheesy Bites franchise owner in front of her shop" loading="lazy" />
+        </figure>
       </div>
-      <form class="card form" id="franchiseForm" novalidate>
-        <h3 data-i18n="form.title">Franchise Enquiry</h3>
-        <label><span data-i18n="form.name">Full name</span><input name="name" autocomplete="name" required /></label>
-        <label><span data-i18n="form.phone">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
-        <label><span data-i18n="form.city">City / Township</span><input name="city" required /></label>
-        <label><span data-i18n="form.format">Format</span>
+
+      <!-- Benefits -->
+      <h3 class="fr-subtitle" data-i18n="fr.why">Why franchisees choose Cheesy Bites</h3>
+      <div class="fr-benefits">
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">👩‍🍳</div>
+          <h4 data-i18n="fr.b1h">No chef or extra staff needed</h4>
+          <p data-i18n="fr.b1p">Staff are hard to find these days. Our frozen products are ready to fry, so you can cook and sell them yourself in about 3 minutes.</p>
+        </article>
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">💸</div>
+          <h4 data-i18n="fr.b2h">Less waste, steadier costs</h4>
+          <p data-i18n="fr.b2p">Raw material prices change every day. Making snacks from scratch means waste and risk. We supply ready products, so you buy only what you sell.</p>
+        </article>
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">⭐</div>
+          <h4 data-i18n="fr.b3h">A brand people already know</h4>
+          <p data-i18n="fr.b3p">Customers already know and love our corndogs, long potato and chicken popcorn, so you start with a proven, fast-selling menu.</p>
+        </article>
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">🤝</div>
+          <h4 data-i18n="fr.b4h">Support at every step</h4>
+          <p data-i18n="fr.b4p">From setting up your shop to daily operations, product supply, training and sales promotion, we work with you side by side.</p>
+        </article>
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">🏪</div>
+          <h4 data-i18n="fr.b5h">Fits any space</h4>
+          <p data-i18n="fr.b5p">Run it as a kiosk, a mall counter or a full shopfront. You choose the format that fits your location and budget.</p>
+        </article>
+        <article class="fr-benefit">
+          <div class="fr-benefit__icon">📈</div>
+          <h4 data-i18n="fr.b6h">Easy income</h4>
+          <p data-i18n="fr.b6p">Quick to cook, quick to sell. It's a simple, low-stress way to earn from a food business without years of experience.</p>
+        </article>
+      </div>
+
+      <!-- What you sell -->
+      <div class="fr-sell">
+        <figure class="photo"><img src="assets/img/fb/readytofry.jpg" alt="Cheesy Bites ready-to-fry frozen chicken popcorn and long potato packs" loading="lazy" /></figure>
+        <div>
+          <h3 class="fr-subtitle fr-subtitle--left" data-i18n="fr.sellTitle">What you'll sell</h3>
+          <p data-i18n="fr.sellBody">Ready-to-fry frozen products, delivered to your shop. Keep them frozen, fry for a few minutes, and serve.</p>
+          <ul class="checks" data-i18n="fr.sellList"><li>Cheese sticks &amp; corndogs</li><li>Signature long potato</li><li>Chicken popcorn</li><li>Burgers and combo sets</li></ul>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <h3 class="fr-subtitle" data-i18n="fr.howTitle">How it works</h3>
+      <ol class="fr-steps">
+        <li><span>1</span><h4 data-i18n="fr.s1h">Send an enquiry</h4><p data-i18n="fr.s1p">Fill in the form below or message us on Facebook Messenger.</p></li>
+        <li><span>2</span><h4 data-i18n="fr.s2h">Talk with our team</h4><p data-i18n="fr.s2p">We go through your location, shop format and the details of the franchise package.</p></li>
+        <li><span>3</span><h4 data-i18n="fr.s3h">Set up &amp; training</h4><p data-i18n="fr.s3p">We help set up your shop and train you to cook, serve and sell.</p></li>
+        <li><span>4</span><h4 data-i18n="fr.s4h">Open &amp; grow</h4><p data-i18n="fr.s4p">Start selling with regular product supply and marketing support from Cheesy Bites.</p></li>
+      </ol>
+
+      <!-- Enquiry form -->
+      <div class="fr-form">
+        <div class="fr-form__text">
+          <h3 class="fr-subtitle fr-subtitle--left" data-i18n="fr.formIntroTitle">Take your first step today</h3>
+          <p data-i18n="fr.formIntro">Don't let your dream stay a dream. Leave your details and our team will contact you with the full franchise information.</p>
+        </div>
+        <form class="card form" id="franchiseForm" novalidate>
+          <h3 data-i18n="form.title">Franchise Enquiry</h3>
+          <label><span data-i18n="form.name">Full name</span><input name="name" autocomplete="name" required /></label>
+          <label><span data-i18n="form.phone">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+          <label><span data-i18n="form.city">City / Township</span><input name="city" required /></label>
+          <label><span data-i18n="form.format">Format</span>
           <select name="format">
             <option value="Kiosk" data-i18n="opt.kiosk">Kiosk</option><option value="Mall counter" data-i18n="opt.mall">Mall counter</option><option value="Shopfront" data-i18n="opt.shop">Shopfront</option><option value="Not sure yet" data-i18n="opt.unsure">Not sure yet</option>
           </select>
-        </label>
-        <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3"></textarea></label>
-        <button class="btn btn--dark btn--full" type="submit" id="formBtn" data-i18n="form.send">Send Enquiry</button>
-        <p class="form__msg" id="formMsg" role="status"></p>
-      </form>
+          </label>
+          <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3"></textarea></label>
+          <button class="btn btn--dark btn--full" type="submit" id="formBtn" data-i18n="form.send">Send Enquiry</button>
+          <p class="form__msg" id="formMsg" role="status"></p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -357,7 +439,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="i18n.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
