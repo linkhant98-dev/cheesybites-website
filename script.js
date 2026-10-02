@@ -147,7 +147,10 @@ $('#franchiseForm').addEventListener('submit', async e => {
       }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
+    if (!res.ok || String(data.success) !== 'true') {
+      console.warn('FormSubmit:', data.message || res.status);
+      throw new Error(data.message || res.status);
+    }
     msg.textContent = M.sent;
     form.reset();
   } catch (err) {
@@ -159,6 +162,11 @@ $('#franchiseForm').addEventListener('submit', async e => {
     btn.disabled = false;
   }
 });
+
+// Clear the red highlight as soon as a field is filled in
+$$('#franchiseForm [required]').forEach(f => f.addEventListener('input', () => {
+  if (f.value.trim()) f.classList.remove('invalid');
+}));
 
 // ===== Lightbox for outlet photos =====
 const lightbox = $('#lightbox');
