@@ -34,3 +34,17 @@ Then open http://localhost:8080 in your browser.
 ## Editing products
 
 Open `script.js` and edit the `PRODUCTS` list at the top. Each item has a category (`fresh`, `frozen`, `wholesale`), a photo from `assets/img/`, a name, a description, and where to buy it.
+
+## Languages (English / မြန်မာ)
+
+The **မြန်မာ / English** button in the top menu switches language, and the site remembers the visitor's choice.
+
+- English text is in `index.html`.
+- Myanmar text is in `i18n.js`. Each key matches a `data-i18n="..."` attribute in `index.html`.
+- Product names and descriptions in Myanmar are in the `my:` field of each product in `script.js`.
+
+## Franchise enquiry emails
+
+The franchise form sends each enquiry by email to **cheesy.bites11@gmail.com**, with a copy to **linkhant98@gmail.com**. It uses the free [FormSubmit](https://formsubmit.co) service (settings are at the top of `script.js`).
+
+**One-time setup:** the first time someone submits the form, FormSubmit sends an activation email to cheesy.bites11@gmail.com. Click **Activate Form** in that email. After that, every enquiry arrives automatically. If sending fails, the form opens the visitor's email app addressed to both emails instead.

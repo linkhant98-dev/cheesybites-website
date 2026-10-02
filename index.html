@@ -8,8 +8,8 @@
   <link rel="icon" href="assets/img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
 
@@ -20,14 +20,15 @@
         <img src="assets/img/logo.png" alt="Cheesy Bites" />
       </a>
       <nav class="nav__links" id="navLinks">
-        <a href="#about">About Us</a>
-        <a href="#what-we-do">What We Do</a>
-        <a href="#products">Products</a>
-        <a href="#where-to-buy">Where to Buy</a>
-        <a href="#outlets">Outlets</a>
-        <a href="#franchise">Franchise</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav.about">About Us</a>
+        <a href="#what-we-do" data-i18n="nav.do">What We Do</a>
+        <a href="#products" data-i18n="nav.products">Products</a>
+        <a href="#where-to-buy" data-i18n="nav.where">Where to Buy</a>
+        <a href="#outlets" data-i18n="nav.outlets">Outlets</a>
+        <a href="#franchise" data-i18n="nav.franchise">Franchise</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">မြန်မာ</button>
       <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -37,24 +38,24 @@
     <div class="drips" aria-hidden="true"></div>
     <div class="container hero__inner">
       <div class="hero__text">
-        <p class="eyebrow">Myanmar snack brand · since 2020</p>
-        <h1 class="hero__title">The <span>Cheese Pull</span><br />You Can't Resist</h1>
-        <p class="hero__tag">Food For Everyone</p>
-        <p class="hero__sub">Cheese sticks, corndogs, burgers, fries and frozen snacks. You'll find them at our outlets, on supermarket shelves, in wholesale packs, and at franchise locations across Myanmar.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Myanmar snack brand · since 2020</p>
+        <h1 class="hero__title" data-i18n="hero.title">The <span>Cheese Pull</span><br />You Can't Resist</h1>
+        <p class="hero__tag" data-i18n="hero.tag">Food For Everyone</p>
+        <p class="hero__sub" data-i18n="hero.sub">Cheese sticks, corndogs, burgers, fries and frozen snacks. You'll find them at our outlets, on supermarket shelves, in wholesale packs, and at franchise locations across Myanmar.</p>
         <div class="hero__cta">
-          <a href="#products" class="btn btn--dark">Our Products</a>
-          <a href="#franchise" class="btn btn--ghost">Own a Franchise</a>
+          <a href="#products" class="btn btn--dark" data-i18n="hero.cta1">Our Products</a>
+          <a href="#franchise" class="btn btn--ghost" data-i18n="hero.cta2">Own a Franchise</a>
         </div>
         <a href="#where-to-buy" class="instore">
-          <span class="instore__label">Now in store at</span>
+          <span class="instore__label" data-i18n="hero.instore">Now in store at</span>
           <img src="assets/img/partners/makro.png" alt="Makro Myanmar" class="instore__logo instore__logo--white" />
           <img src="assets/img/partners/ocean.jpg" alt="Ocean Supercenter" class="instore__logo" />
           <img src="assets/img/partners/marketplace.jpg" alt="Marketplace by City Mart" class="instore__logo" />
         </a>
         <ul class="hero__stats">
-          <li><strong data-count="2020" data-start="2000">2000</strong><span>Founded</span></li>
-          <li><strong data-count="6">0</strong><span>Company outlets</span></li>
-          <li><strong data-count="58">0</strong><span>Franchise outlets</span></li>
+          <li><strong data-count="2020" data-start="2000">2000</strong><span data-i18n="stat.founded">Founded</span></li>
+          <li><strong data-count="6">0</strong><span data-i18n="stat.company">Company outlets</span></li>
+          <li><strong data-count="58">0</strong><span data-i18n="stat.franchise">Franchise outlets</span></li>
         </ul>
       </div>
 
@@ -83,14 +84,14 @@
             </pattern>
           </defs>
         </svg>
-        <div class="badge">100%<br/>REAL<br/>CHEESE</div>
+        <div class="badge" data-i18n="hero.badge">100%<br/>REAL<br/>CHEESE</div>
       </div>
     </div>
   </section>
 
   <!-- ===== MARQUEE ===== -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
+    <div class="marquee__track" data-i18n="marquee">
       <span>🧀 CHEESE STICKS</span><span>🌭 CORNDOGS</span><span>🍔 BURGERS</span><span>🍟 FRIES</span><span>❄️ FROZEN</span><span>🤝 FRANCHISE</span>
       <span>🧀 CHEESE STICKS</span><span>🌭 CORNDOGS</span><span>🍔 BURGERS</span><span>🍟 FRIES</span><span>❄️ FROZEN</span><span>🤝 FRANCHISE</span>
     </div>
@@ -102,17 +103,17 @@
       <div class="split__art">
         <figure class="photo photo--tilt">
           <img src="assets/img/tawwin-3.jpg" alt="Cheesy Bites main outlet at Taw Win Center, Yangon" loading="lazy" />
-          <figcaption>Main outlet · Taw Win Center</figcaption>
+          <figcaption data-i18n="about.caption">Main outlet · Taw Win Center</figcaption>
         </figure>
       </div>
       <div class="split__text">
-        <p class="eyebrow">About Us</p>
-        <h2 class="section__title section__title--left">Who <span>We Are</span></h2>
-        <p class="lead">A Myanmar snack brand bringing quality cheesy bites to retail shelves, food courts, wholesale channels and franchise locations.</p>
-        <p>Cheesy Bites started in early 2020 out of a love for snacks. Since then it has grown into a community of food lovers, partners and entrepreneurs, all sharing one idea: <b>Food For Everyone</b>. Quality snacks for everyday customers.</p>
+        <p class="eyebrow" data-i18n="nav.about">About Us</p>
+        <h2 class="section__title section__title--left" data-i18n="about.title">Who <span>We Are</span></h2>
+        <p class="lead" data-i18n="about.lead">A Myanmar snack brand bringing quality cheesy bites to retail shelves, food courts, wholesale channels and franchise locations.</p>
+        <p data-i18n="about.body">Cheesy Bites started in early 2020 out of a love for snacks. Since then it has grown into a community of food lovers, partners and entrepreneurs, all sharing one idea: <b>Food For Everyone</b>. Quality snacks for everyday customers.</p>
         <ul class="trust">
-          <li>✅ Registered company &amp; tax registered</li>
-          <li>🧪 Food-safety lab tested</li>
+          <li data-i18n="about.trust1">✅ Registered company &amp; tax registered</li>
+          <li data-i18n="about.trust2">🧪 Food-safety lab tested</li>
         </ul>
       </div>
     </div>
@@ -121,23 +122,23 @@
   <!-- ===== WHAT WE ARE ===== -->
   <section class="section section--dark" id="what-we-are">
     <div class="container">
-      <h2 class="section__title">What <span>We Are</span></h2>
-      <p class="section__sub">Three things define Cheesy Bites.</p>
+      <h2 class="section__title" data-i18n="are.title">What <span>We Are</span></h2>
+      <p class="section__sub" data-i18n="are.sub">Three things define Cheesy Bites.</p>
       <div class="pillars">
         <article class="pillar">
           <span class="pillar__num">01</span>
-          <h3>Snack Craft</h3>
-          <p>Cheese sticks, burgers, fries, corndogs, potato sticks and frozen products, all made with the cheese pull people love.</p>
+          <h3 data-i18n="are.h1">Snack Craft</h3>
+          <p data-i18n="are.p1">Cheese sticks, burgers, fries, corndogs, potato sticks and frozen products, all made with the cheese pull people love.</p>
         </article>
         <article class="pillar">
           <span class="pillar__num">02</span>
-          <h3>Dual Channel</h3>
-          <p>Wholesale and retail presence through supermarkets, malls and delivery partners.</p>
+          <h3 data-i18n="are.h2">Dual Channel</h3>
+          <p data-i18n="are.p2">Wholesale and retail presence through supermarkets, malls and delivery partners.</p>
         </article>
         <article class="pillar">
           <span class="pillar__num">03</span>
-          <h3>Franchise Growth</h3>
-          <p>A scalable food concept built for entrepreneurs and partner locations.</p>
+          <h3 data-i18n="are.h3">Franchise Growth</h3>
+          <p data-i18n="are.p3">A scalable food concept built for entrepreneurs and partner locations.</p>
         </article>
       </div>
     </div>
@@ -146,33 +147,33 @@
   <!-- ===== WHAT WE DO ===== -->
   <section class="section" id="what-we-do">
     <div class="container">
-      <h2 class="section__title">What <span>We Do</span></h2>
-      <p class="section__sub">We get Cheesy Bites to people in five ways.</p>
+      <h2 class="section__title" data-i18n="do.title">What <span>We Do</span></h2>
+      <p class="section__sub" data-i18n="do.sub">We get Cheesy Bites to people in five ways.</p>
       <div class="features">
         <article class="feature">
           <div class="feature__icon">🏬</div>
-          <h3>Our Outlets</h3>
-          <p>Fried fresh to order at company outlets in malls and food courts, including PinLon Hills and City Mall.</p>
+          <h3 data-i18n="do.h1">Our Outlets</h3>
+          <p data-i18n="do.p1">Fried fresh to order at company outlets in malls and food courts, including our main outlet at Taw Win Center, PinLon Hills and City Mall.</p>
         </article>
         <article class="feature">
           <div class="feature__icon">🛒</div>
-          <h3>Supermarket Retail</h3>
-          <p>Frozen products and ready-to-eat fries on the shelves at City Mart Holding (CMHL) stores: Ocean, City Mart and Marketplace.</p>
+          <h3 data-i18n="do.h2">Supermarket Retail</h3>
+          <p data-i18n="do.p2">Frozen products and ready-to-eat fries on the shelves at City Mart Holding (CMHL) stores: Ocean, City Mart and Marketplace.</p>
         </article>
         <article class="feature">
           <div class="feature__icon">📦</div>
-          <h3>Wholesale</h3>
-          <p>Bulk packs for restaurants, cafes, food stalls, caterers and retailers, available at all <b>Makro Myanmar</b> stores.</p>
+          <h3 data-i18n="do.h3">Wholesale</h3>
+          <p data-i18n="do.p3">Bulk packs for restaurants, cafes, food stalls, caterers and retailers, available at all <b>Makro Myanmar</b> stores.</p>
         </article>
         <article class="feature">
           <div class="feature__icon">🛵</div>
-          <h3>Delivery</h3>
-          <p>Order Cheesy Bites to your door through foodpanda and our delivery partners.</p>
+          <h3 data-i18n="do.h4">Delivery</h3>
+          <p data-i18n="do.p4">Order Cheesy Bites to your door through foodpanda and our delivery partners.</p>
         </article>
         <article class="feature">
           <div class="feature__icon">🤝</div>
-          <h3>Franchise</h3>
-          <p>We help entrepreneurs open and run their own Cheesy Bites outlet, from setup to supply.</p>
+          <h3 data-i18n="do.h5">Franchise</h3>
+          <p data-i18n="do.p5">We help entrepreneurs open and run their own Cheesy Bites outlet, from setup to supply.</p>
         </article>
       </div>
     </div>
@@ -181,14 +182,14 @@
   <!-- ===== PRODUCTS ===== -->
   <section class="section section--cream2" id="products">
     <div class="container">
-      <h2 class="section__title">Our <span>Products</span></h2>
-      <p class="section__sub">Fresh from our outlets, frozen for your home, or in bulk for your business.</p>
+      <h2 class="section__title" data-i18n="prod.title">Our <span>Products</span></h2>
+      <p class="section__sub" data-i18n="prod.sub">Fresh from our outlets, frozen for your home, or in bulk for your business.</p>
 
       <div class="tabs" id="tabs">
-        <button class="tab is-active" data-filter="all">All</button>
-        <button class="tab" data-filter="fresh">Ready to Eat</button>
-        <button class="tab" data-filter="frozen">Frozen</button>
-        <button class="tab" data-filter="wholesale">Wholesale</button>
+        <button class="tab is-active" data-filter="all" data-i18n="tab.all">All</button>
+        <button class="tab" data-filter="fresh" data-i18n="cat.fresh">Ready to Eat</button>
+        <button class="tab" data-filter="frozen" data-i18n="cat.frozen">Frozen</button>
+        <button class="tab" data-filter="wholesale" data-i18n="cat.wholesale">Wholesale</button>
       </div>
 
       <div class="menu-grid" id="productGrid"><!-- filled by script.js --></div>
@@ -198,8 +199,8 @@
   <!-- ===== WHERE TO BUY: MAKRO + CMHL SPOTLIGHT ===== -->
   <section class="section section--yellow" id="where-to-buy">
     <div class="container">
-      <h2 class="section__title section__title--dark">Find Us <span>In Store</span></h2>
-      <p class="section__sub">Cheesy Bites is on the shelves at Myanmar's leading retailers.</p>
+      <h2 class="section__title section__title--dark" data-i18n="wtb.title">Find Us <span>In Store</span></h2>
+      <p class="section__sub" data-i18n="wtb.sub">Cheesy Bites is on the shelves at Myanmar's leading retailers.</p>
 
       <!-- Makro spotlight -->
       <article class="spot spot--makro">
@@ -209,22 +210,22 @@
         <div class="spot__body">
           <div class="spot__brand">
             <img src="assets/img/partners/makro.png" alt="Makro Myanmar" class="spot__logo spot__logo--white" />
-            <span class="spot__pill">Wholesale partner</span>
+            <span class="spot__pill" data-i18n="makro.pill">Wholesale partner</span>
           </div>
-          <h3 class="spot__title">Now in Wholesale Packs at <span>Makro Myanmar</span></h3>
-          <p>Bulk Cheesy Bites packs are in stock at <b>all Makro Myanmar stores</b>. They're made for businesses that want consistent quality and reliable supply, with packs ready to cook and sell.</p>
-          <ul class="spot__chips">
+          <h3 class="spot__title" data-i18n="makro.title">Now in Wholesale Packs at <span>Makro Myanmar</span></h3>
+          <p data-i18n="makro.body">Bulk Cheesy Bites packs are in stock at <b>all Makro Myanmar stores</b>. They're made for businesses that want consistent quality and reliable supply, with packs ready to cook and sell.</p>
+          <ul class="spot__chips" data-i18n="makro.chips">
             <li>🥔 Potato Ball <small>1 kg</small></li>
             <li>🔺 Potato Triangle <small>1 kg</small></li>
             <li>🍗 Chicken Popcorn <small>1 kg</small></li>
             <li>🧀 Cheese Sauce <small>300 ml</small></li>
           </ul>
-          <ul class="spot__ticks">
+          <ul class="spot__ticks" data-i18n="makro.ticks">
             <li>Perfect for restaurants, cafes, food stalls, catering &amp; retailers</li>
             <li>Consistent quality, bulk packs ready to sell</li>
             <li>Cash &amp; Carry convenience at multiple store locations</li>
           </ul>
-          <a class="btn btn--makro" href="https://www.makromyanmar.com" target="_blank" rel="noopener">Visit Makro Myanmar →</a>
+          <a class="btn btn--makro" href="https://www.makromyanmar.com" target="_blank" rel="noopener" data-i18n="makro.btn">Visit Makro Myanmar →</a>
         </div>
       </article>
 
@@ -234,14 +235,14 @@
           <div class="spot__brand">
             <span class="spot__pill spot__pill--cmhl">City Mart Holding · CMHL</span>
           </div>
-          <h3 class="spot__title">On the Shelves at <span>Ocean, City Mart &amp; Marketplace</span></h3>
-          <p>Pick up Cheesy Bites on your weekly shop. Our frozen range and ready-to-eat fries are sold across City Mart Holding supermarkets.</p>
+          <h3 class="spot__title" data-i18n="cmhl.title">On the Shelves at <span>Ocean, City Mart &amp; Marketplace</span></h3>
+          <p data-i18n="cmhl.body">Pick up Cheesy Bites on your weekly shop. Our frozen range and ready-to-eat fries are sold across City Mart Holding supermarkets.</p>
           <div class="cmhl-logos">
             <img src="assets/img/partners/ocean.jpg" alt="Ocean Supercenter" />
             <span class="cmhl-logos__text">City Mart</span>
             <img src="assets/img/partners/marketplace.jpg" alt="Marketplace by City Mart" />
           </div>
-          <div class="where">
+          <div class="where" data-i18n="cmhl.where">
             <div>
               <h4>❄️ Frozen products</h4>
               <ul><li>All Marketplace stores in Yangon</li><li>All Ocean Supercenters</li><li>City Mart</li></ul>
@@ -258,7 +259,7 @@
       </article>
 
       <!-- Other partners -->
-      <h3 class="more-partners__title">Also available with</h3>
+      <h3 class="more-partners__title" data-i18n="more.title">Also available with</h3>
       <ul class="more-partners">
         <li><img src="assets/img/partners/capital.png" alt="Capital Hypermarket" /></li>
         <li><img src="assets/img/partners/yangon-bazaar.png" alt="Yangon Bazaar" /></li>
@@ -271,21 +272,21 @@
   <!-- ===== OUTLETS ===== -->
   <section class="section" id="outlets">
     <div class="container">
-      <h2 class="section__title">Our <span>Outlets</span></h2>
+      <h2 class="section__title" data-i18n="out.title">Our <span>Outlets</span></h2>
       <div class="network">
-        <div class="network__stat"><strong data-count="6">0</strong><span>Company outlets</span></div>
-        <div class="network__stat"><strong data-count="58">0</strong><span>Franchise outlets</span></div>
-        <div class="network__stat"><strong>🇲🇲</strong><span>Wholesale coverage across Myanmar</span></div>
+        <div class="network__stat"><strong data-count="6">0</strong><span data-i18n="stat.company">Company outlets</span></div>
+        <div class="network__stat"><strong data-count="58">0</strong><span data-i18n="stat.franchise">Franchise outlets</span></div>
+        <div class="network__stat"><strong>🇲🇲</strong><span data-i18n="stat.coverage">Wholesale coverage across Myanmar</span></div>
       </div>
       <div class="gallery">
-        <figure class="photo photo--wide"><img src="assets/img/tawwin-1.jpg" alt="Cheesy Bites main outlet entrance at Taw Win Center" loading="lazy" /><figcaption>⭐ Main outlet · Taw Win Center</figcaption></figure>
-        <figure class="photo"><img src="assets/img/tawwin-4.jpg" alt="Seating area inside the Taw Win Center outlet" loading="lazy" /><figcaption>Taw Win Center · dine-in</figcaption></figure>
-        <figure class="photo"><img src="assets/img/tawwin-2.jpg" alt="Counter and seating at the Taw Win Center outlet" loading="lazy" /><figcaption>Taw Win Center · counter</figcaption></figure>
+        <figure class="photo photo--wide"><img src="assets/img/tawwin-1.jpg" alt="Cheesy Bites main outlet entrance at Taw Win Center" loading="lazy" /><figcaption data-i18n="cap.main">⭐ Main outlet · Taw Win Center</figcaption></figure>
+        <figure class="photo"><img src="assets/img/tawwin-4.jpg" alt="Seating area inside the Taw Win Center outlet" loading="lazy" /><figcaption data-i18n="cap.dine">Taw Win Center · dine-in</figcaption></figure>
+        <figure class="photo"><img src="assets/img/tawwin-2.jpg" alt="Counter and seating at the Taw Win Center outlet" loading="lazy" /><figcaption data-i18n="cap.counter">Taw Win Center · counter</figcaption></figure>
         <figure class="photo"><img src="assets/img/outlet-citymall.jpg" alt="City Mall outlet" loading="lazy" /><figcaption>City Mall</figcaption></figure>
         <figure class="photo"><img src="assets/img/outlet-pinlon.jpg" alt="PinLon Hills outlet" loading="lazy" /><figcaption>PinLon Hills</figcaption></figure>
-        <figure class="photo"><img src="assets/img/outlet-franchise-1.jpg" alt="Franchise outlet" loading="lazy" /><figcaption>Franchise outlet</figcaption></figure>
-        <figure class="photo"><img src="assets/img/outlet-franchise-2.jpg" alt="Franchise outlet kiosk" loading="lazy" /><figcaption>Franchise kiosk</figcaption></figure>
-        <figure class="photo"><img src="assets/img/outlet-franchise-4.jpg" alt="Cheesy Bites shopfront" loading="lazy" /><figcaption>Franchise shopfront</figcaption></figure>
+        <figure class="photo"><img src="assets/img/outlet-franchise-1.jpg" alt="Franchise outlet" loading="lazy" /><figcaption data-i18n="cap.f1">Franchise outlet</figcaption></figure>
+        <figure class="photo"><img src="assets/img/outlet-franchise-2.jpg" alt="Franchise outlet kiosk" loading="lazy" /><figcaption data-i18n="cap.f2">Franchise kiosk</figcaption></figure>
+        <figure class="photo"><img src="assets/img/outlet-franchise-4.jpg" alt="Cheesy Bites shopfront" loading="lazy" /><figcaption data-i18n="cap.f3">Franchise shopfront</figcaption></figure>
       </div>
     </div>
   </section>
@@ -294,9 +295,9 @@
   <section class="section section--yellow" id="franchise">
     <div class="container split split--reverse">
       <div class="split__text">
-        <p class="eyebrow eyebrow--dark">Grow with us</p>
-        <h2 class="section__title section__title--left section__title--dark">Own a Cheesy Bites <span>Franchise</span></h2>
-        <ul class="checks">
+        <p class="eyebrow eyebrow--dark" data-i18n="fr.eyebrow">Grow with us</p>
+        <h2 class="section__title section__title--left section__title--dark" data-i18n="fr.title">Own a Cheesy Bites <span>Franchise</span></h2>
+        <ul class="checks" data-i18n="fr.checks">
           <li>A proven menu and a brand customers already know</li>
           <li>Frozen supply that's ready to fry, so you don't need a complicated kitchen</li>
           <li>Fits a kiosk, mall counter, or shopfront</li>
@@ -305,17 +306,17 @@
         </ul>
       </div>
       <form class="card form" id="franchiseForm" novalidate>
-        <h3>Franchise Enquiry</h3>
-        <label>Full name<input name="name" required /></label>
-        <label>Phone<input name="phone" type="tel" required /></label>
-        <label>City / Township<input name="city" required /></label>
-        <label>Format
+        <h3 data-i18n="form.title">Franchise Enquiry</h3>
+        <label><span data-i18n="form.name">Full name</span><input name="name" autocomplete="name" required /></label>
+        <label><span data-i18n="form.phone">Phone</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+        <label><span data-i18n="form.city">City / Township</span><input name="city" required /></label>
+        <label><span data-i18n="form.format">Format</span>
           <select name="format">
-            <option>Kiosk</option><option>Mall counter</option><option>Shopfront</option><option>Not sure yet</option>
+            <option value="Kiosk" data-i18n="opt.kiosk">Kiosk</option><option value="Mall counter" data-i18n="opt.mall">Mall counter</option><option value="Shopfront" data-i18n="opt.shop">Shopfront</option><option value="Not sure yet" data-i18n="opt.unsure">Not sure yet</option>
           </select>
         </label>
-        <label>Message<textarea name="message" rows="3"></textarea></label>
-        <button class="btn btn--dark btn--full" type="submit">Send Enquiry</button>
+        <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3"></textarea></label>
+        <button class="btn btn--dark btn--full" type="submit" id="formBtn" data-i18n="form.send">Send Enquiry</button>
         <p class="form__msg" id="formMsg" role="status"></p>
       </form>
     </div>
@@ -324,15 +325,15 @@
   <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
-      <h2 class="section__title">Get in <span>Touch</span></h2>
+      <h2 class="section__title" data-i18n="ct.title">Get in <span>Touch</span></h2>
       <div class="visit">
         <div class="card visit__info">
-          <p><b>📍 Main Outlet</b><br />No.45, Pyay Road,<br />B-19/20/22, Taw Win Center,<br />Dagon Township, Yangon Region 11111, Myanmar</p>
-          <p><b>✉️ Email</b><br /><a href="mailto:cheesy.bites11@gmail.com">cheesy.bites11@gmail.com</a></p>
+          <p data-i18n="ct.address"><b>📍 Main Outlet</b><br />No.45, Pyay Road,<br />B-19/20/22, Taw Win Center,<br />Dagon Township, Yangon Region 11111, Myanmar</p>
+          <p><b data-i18n="ct.email">✉️ Email</b><br /><a href="mailto:cheesy.bites11@gmail.com">cheesy.bites11@gmail.com</a></p>
           <p><b>💬 Facebook</b><br /><a href="https://www.facebook.com/cheesybitesygn" target="_blank" rel="noopener">Cheesy Bites | Yangon</a></p>
           <div class="visit__btns">
-            <a class="btn btn--dark" href="https://maps.google.com/?q=Taw+Win+Center+No.45+Pyay+Road+Dagon+Yangon" target="_blank" rel="noopener">Get Directions</a>
-            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener">Message Us</a>
+            <a class="btn btn--dark" href="https://maps.google.com/?q=Taw+Win+Center+No.45+Pyay+Road+Dagon+Yangon" target="_blank" rel="noopener" data-i18n="ct.dir">Get Directions</a>
+            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener" data-i18n="ct.msg">Message Us</a>
           </div>
         </div>
         <iframe class="visit__map" title="Map to Cheesy Bites"
@@ -345,7 +346,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <img class="footer__logo" src="assets/img/logo.png" alt="Cheesy Bites" />
-      <p>Food For Everyone · Since 2020</p>
+      <p data-i18n="footer.tag">Food For Everyone · Since 2020</p>
       <p>© <span id="year"></span> Cheesy Bites Myanmar</p>
     </div>
   </footer>
@@ -356,6 +357,7 @@
     <img alt="" />
   </div>
 
-  <script src="script.js"></script>
+  <script src="i18n.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

@@ -45,6 +45,12 @@ a { color: inherit; }
 .nav__links a { text-decoration: none; font-weight: 600; position: relative; }
 .nav__links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 3px; background: var(--black); transition: width .2s; }
 .nav__links a:hover::after { width: 100%; }
+.lang-btn {
+  font-family: 'Noto Sans Myanmar', var(--font-body); font-weight: 700; font-size: .85rem; cursor: pointer;
+  background: var(--black); color: var(--yellow); border: 2px solid var(--black); border-radius: 999px; padding: 6px 14px;
+  transition: transform .15s;
+}
+.lang-btn:hover { transform: scale(1.05); }
 .burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
 .burger span { width: 26px; height: 3px; background: var(--black); border-radius: 3px; transition: .25s; }
 
@@ -251,6 +257,21 @@ a { color: inherit; }
 .lightbox img { max-height: 88vh; border-radius: 16px; border: 4px solid var(--yellow); }
 .lightbox__close { position: absolute; top: 16px; right: 20px; background: var(--yellow); border: 0; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
 
+/* ===== Myanmar language ===== */
+html[lang="my"] body { font-family: 'Noto Sans Myanmar', var(--font-body); line-height: 1.85; }
+html[lang="my"] :is(.hero__title, .section__title, .feature h3, .pillar h3, .spot__title, .form h3, .more-partners__title, .network__stat span) {
+  font-family: 'Noto Sans Myanmar', var(--font-body); font-weight: 700; font-style: normal; text-transform: none; letter-spacing: 0;
+}
+html[lang="my"] .hero__title { font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.45; }
+html[lang="my"] .section__title { font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.5; }
+html[lang="my"] .section__title span, html[lang="my"] .hero__tag { font-family: 'Noto Sans Myanmar', var(--font-body); font-weight: 700; }
+html[lang="my"] .spot__title { font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.5; }
+html[lang="my"] .feature h3, html[lang="my"] .pillar h3 { font-size: 1.2rem; }
+html[lang="my"] .hero__tag { font-size: 1.4rem; }
+html[lang="my"] .badge { font-family: 'Noto Sans Myanmar', var(--font-body); font-weight: 700; font-size: .85rem; line-height: 1.4; }
+html[lang="my"] :is(.eyebrow, .instore__label, .spot__pill, .item__cat) { letter-spacing: 0; text-transform: none; }
+html[lang="my"] .marquee__track { font-family: 'Noto Sans Myanmar', var(--font-body); font-weight: 700; font-size: 1.2rem; }
+
 /* ===== Reveal on scroll ===== */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s, transform .6s; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -272,7 +293,7 @@ a { color: inherit; }
   }
   .nav__links a { padding: 14px 16px; border-top: 1px solid rgba(0,0,0,.15); }
   .nav__links.open { max-height: 400px; }
-  .burger { margin-left: auto; }
+  .lang-btn { margin-left: auto; }
   .spot, .spot--cmhl { grid-template-columns: 1fr; }
   .spot--cmhl .spot__media { order: -1; }
   .spot__body { padding: 24px; }
