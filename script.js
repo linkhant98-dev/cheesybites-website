@@ -15,6 +15,9 @@ const PRODUCTS = [
   { cat: 'fresh', img: 'fb/combo.jpg', pos: 'center 55%',
     tag: 'Best seller', name: 'Best Seller Combo Sets', desc: 'Crispy chicken bites, corndogs, fries & sausage and crispy chicken, served together in one set. Great for sharing.', where: 'Our outlets & delivery partners',
     my: { tag: 'အရောင်းရဆုံး', name: 'Best Seller Combo Set များ', desc: 'ကြွပ်ကြွပ် ကြက်သားတုံး၊ ကော်န်ဒေါ့၊ အာလူးကြော်နှင့် အသားချောင်း၊ ကြက်ကြော်ကြွပ် တို့ကို တစ်စုံတည်း မျှဝေစားနိုင်ပါသည်။', where: 'ဆိုင်ခွဲများနှင့် ပို့ဆောင်ရေးမိတ်ဖက်များ' } },
+  { cat: 'fresh', img: 'fb/tawwin-combo.jpg', pos: 'center 55%', exclusive: true,
+    tag: '⭐ Only at Taw Win Center', name: 'Cheesy Combo: Fries & Burger', desc: 'Cheesy sausage & chicken popcorn covered in melted cheese, plus a Cheesy Burger. Crispy, cheesy and absolutely irresistible. Made fresh, made for you.', where: 'Taw Win Center outlet only',
+    my: { tag: '⭐ တော်ဝင်စင်တာတွင်သာ', name: 'Cheesy Combo: အာလူးကြော်နှင့် ဘာဂါ', desc: 'ချိစ်အရည်ဖုံးထားသော အသားချောင်းနှင့် ချစ်ကင်ပေါ့ပ်ကော်န်၊ Cheesy Burger တို့ တစ်စုံတည်း။ ကြွပ်ရွ၊ ချိစ်ပြည့်ပြီး ငြင်းလို့မရတဲ့ အရသာ။', where: 'တော်ဝင်စင်တာ ဆိုင်ခွဲတွင်သာ' } },
   { cat: 'fresh', img: 'burger.jpg',
     tag: 'Outlet favourite', name: 'Cheesy Bites Burgers', desc: 'Juicy patties, melted cheese and our house sauce in a soft sesame bun.', where: 'Our outlets & delivery partners',
     my: { tag: 'ဆိုင်တွင် လူကြိုက်များ', name: 'Cheesy Bites ဘာဂါ', desc: 'အရည်ရွှမ်းသော အသားပြား၊ အရည်ပျော်ချိစ်နှင့် ဆိုင်ကိုယ်ပိုင်ဆော့စ်ကို နှမ်းစေ့ပေါင်မုန့်အပျော့ထဲ ညှပ်ထားပါသည်။', where: 'ဆိုင်ခွဲများနှင့် ပို့ဆောင်ရေးမိတ်ဖက်များ' } },
@@ -89,7 +92,7 @@ function renderProducts(filter = 'all') {
         ? `background-image:url(assets/img/${p.img});background-size:400%;background-position:${p.crop}`
         : `background-image:url(assets/img/${p.img})${p.pos ? `;background-position:${p.pos}` : ''}`;
       return `
-      <article class="item" style="animation-delay:${idx * 50}ms">
+      <article class="item${p.exclusive ? ' item--exclusive' : ''}" style="animation-delay:${idx * 50}ms">
         <div class="item__img" style="${style}" role="img" aria-label="${t.name}"><span class="item__tag">${t.tag}</span></div>
         <div class="item__body">
           <span class="item__cat">${LABELS[lang][p.cat]}</span>
