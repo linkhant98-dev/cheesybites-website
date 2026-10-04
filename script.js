@@ -286,6 +286,15 @@ $$('[required]', form).forEach(f => {
   f.addEventListener('change', () => f.classList.contains('invalid') && validate(f));
 });
 
+// ===== Floating chat button: hide while the enquiry form or contact section is on screen =====
+const fab = $('.fab');
+const fabIO = new IntersectionObserver(entries => {
+  fabIO.visible = fabIO.visible || new Set();
+  entries.forEach(en => en.isIntersecting ? fabIO.visible.add(en.target) : fabIO.visible.delete(en.target));
+  fab.classList.toggle('is-hidden', fabIO.visible.size > 0);
+}, { threshold: 0.25 });
+['#franchiseForm', '#contact'].forEach(sel => $(sel) && fabIO.observe($(sel)));
+
 // ===== Lightbox for outlet photos =====
 const lightbox = $('#lightbox');
 $$('.gallery img').forEach(img => img.addEventListener('click', () => {
