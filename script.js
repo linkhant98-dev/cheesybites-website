@@ -41,6 +41,76 @@ const PRODUCTS = [
     my: { tag: '၃၀၀ မီလီ ထုပ်', name: 'ချိစ်ဆော့စ်', desc: 'နှစ်စားရန်၊ ဖြန်းရန်နှင့် အပေါ်တင်ရန် ချောမွေ့ပြီး အရသာကြွယ်ဝသော ချိစ်ဆော့စ်။', where: 'Makro Myanmar' } },
 ];
 
+// Full menu (same at main outlet and franchise outlets). No prices.
+const FLAVOURS = {
+  en: ['🌶️ Mala', '🔥 Hot & Spicy', '🌿 Seaweed', '🍋 Tom Yum', '🍖 BBQ'],
+  my: ['🌶️ မာလာ', '🔥 စပ်စပ်', '🌿 ရေညှိ', '🍋 တုံယမ်း', '🍖 BBQ'],
+};
+const MENU = [
+  { icon: '🧀', img: 'wholesale.jpg', crop: '2% 52%',
+    en: { title: 'Cheese Balls', groups: [{ items: ['Corn Cheese Ball', 'Potato Cheese Ball', 'Original Cheese Ball'] }] },
+    my: { title: 'ချိစ်ဘော', groups: [{ items: ['ပြောင်းဖူး ချိစ်ဘော', 'အာလူး ချိစ်ဘော', 'မူရင်း ချိစ်ဘော'] }] } },
+  { icon: '🌭', img: 'fb/cheesepull.jpg', pos: 'center 25%', wide: true,
+    en: { title: 'Corndogs', groups: [
+      { label: 'Full Cheese', items: ['Original', 'Seaweed', 'Potato', 'Chocolate', 'Sweet Potato'] },
+      { label: 'Full Sausage', items: ['Original', 'Potato'] },
+      { label: 'Half & Half', items: ['Half Sausage, Half Cheese'] } ] },
+    my: { title: 'ကော်န်ဒေါ့', groups: [
+      { label: 'ချိစ်အပြည့်', items: ['မူရင်း', 'ရေညှိ', 'အာလူး', 'ချောကလက်', 'ကန်စွန်းဥ'] },
+      { label: 'အသားချောင်းအပြည့်', items: ['မူရင်း', 'အာလူး'] },
+      { label: 'တစ်ဝက်စီ', items: ['တစ်ဝက်အသားချောင်း၊ တစ်ဝက်ချိစ်'] } ] } },
+  { icon: '🍗', img: 'fb/combo.jpg', pos: 'center 40%', flavours: true,
+    en: { title: 'Fried Chicken', groups: [{ items: ['Fried Chicken Tender', 'Chicken Skin', 'Chicken Popcorn'] }] },
+    my: { title: 'ကြက်ကြော်', groups: [{ items: ['ကြက်ရင်ပုံသားလွှာကြော်', 'ကြက်အရေခွံကြော်', 'ချစ်ကင် ပေါ့ပ်ကော်န်'] }] } },
+  { icon: '🍟', img: 'fb/longpotato.jpg', pos: 'center 55%', flavours: true,
+    en: { title: 'Potatoes', groups: [
+      { label: 'Little Potato', items: ['Little Potato Bites'] },
+      { label: 'Long Potato', items: ['Signature Long Potato'] } ] },
+    my: { title: 'အာလူးချောင်း', groups: [
+      { label: 'အာလူးချောင်းတို', items: ['အာလူးချောင်းတို ကြော်'] },
+      { label: 'အာလူးချောင်းရှည်', items: ['Signature အာလူးချောင်းရှည်'] } ] } },
+  { icon: '🍔', img: 'burger.jpg', pos: 'center 70%', special: true, wide: true, span: true,
+    en: { title: 'Burgers & Hotdogs', groups: [
+      { label: 'Burgers', items: ['Chicken Burger (single meat)', 'Chicken Burger (double meat)', 'Black Chicken Burger', 'Beef Burger'] },
+      { label: 'Hotdogs', items: ['Cheesy / Mayo Chicken-Sausage Hotdog', 'Cheesy / Mayo Beef Hotdog'] } ] },
+    my: { title: 'ဘာဂါနှင့် ဟော့ဒေါ့', groups: [
+      { label: 'ဘာဂါ', items: ['ကြက်သားဘာဂါ (အသားတစ်ထပ်)', 'ကြက်သားဘာဂါ (အသားနှစ်ထပ်)', 'Black Chicken ဘာဂါ', 'အမဲသားဘာဂါ'] },
+      { label: 'ဟော့ဒေါ့', items: ['ချိစ် / မာယို ကြက်သားအသားချောင်း ဟော့ဒေါ့', 'ချိစ် / မာယို အမဲသား ဟော့ဒေါ့'] } ] } },
+];
+const MENU_TEXT = {
+  en: { flavours: 'Choose a flavour', cheese: '🧀 + Add cheese', special: 'Special menu' },
+  my: { flavours: 'အရသာ ရွေးချယ်ပါ', cheese: '🧀 + ချိစ်ထပ်ထည့်နိုင်', special: 'အထူးမီနူး' },
+};
+
+function renderMenu() {
+  const T = MENU_TEXT[lang];
+  $('#menuBoards').innerHTML = MENU.map(b => {
+    const t = b[lang];
+    const bg = b.crop
+      ? `background-image:url(assets/img/${b.img});background-size:400%;background-position:${b.crop}`
+      : `background-image:url(assets/img/${b.img});background-position:${b.pos || 'center'}`;
+    const groups = t.groups.map(g => `
+        ${g.label ? `<h4 class="board__group">${g.label}</h4>` : ''}
+        <ul class="board__items">${g.items.map(i => `<li>${i}</li>`).join('')}</ul>`).join('');
+    const flavours = b.flavours ? `
+        <div class="board__flavours">
+          <p>${T.flavours}</p>
+          <ul>${FLAVOURS[lang].map(f => `<li>${f}</li>`).join('')}<li class="cheese">${T.cheese}</li></ul>
+        </div>` : '';
+    return `
+      <article class="board${b.wide ? ' board--wide' : ''}${b.span ? ' board--span' : ''}">
+        <div class="board__img" style="${bg}" role="img" aria-label="${t.title}">
+          ${b.special ? `<span class="board__ribbon">${T.special}</span>` : ''}
+        </div>
+        <div class="board__body">
+          <h3 class="board__title"><span>${b.icon}</span>${t.title}</h3>
+          ${groups}
+          ${flavours}
+        </div>
+      </article>`;
+  }).join('');
+}
+
 const LABELS = {
   en: { fresh: 'Ready to Eat', frozen: 'Frozen', wholesale: 'Wholesale' },
   my: { fresh: 'အသင့်စား', frozen: 'အေးခဲ', wholesale: 'လက်ကား' },
@@ -76,6 +146,7 @@ function setLang(next) {
   });
   $('#langBtn').textContent = lang === 'my' ? 'English' : 'မြန်မာ';
   renderProducts(currentFilter);
+  renderMenu();
   try { localStorage.setItem('cb-lang', lang); } catch {}
 }
 $('#langBtn').addEventListener('click', () => setLang(lang === 'my' ? 'en' : 'my'));

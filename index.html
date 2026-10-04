@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
 
@@ -23,6 +23,7 @@
         <a href="#about" data-i18n="nav.about">About Us</a>
         <a href="#what-we-do" data-i18n="nav.do">What We Do</a>
         <a href="#products" data-i18n="nav.products">Products</a>
+        <a href="#menu" data-i18n="nav.menu">Menu</a>
         <a href="#where-to-buy" data-i18n="nav.where">Where to Buy</a>
         <a href="#outlets" data-i18n="nav.outlets">Outlets</a>
         <a href="#franchise" data-i18n="nav.franchise">Franchise</a>
@@ -206,6 +207,15 @@
     </div>
   </section>
 
+  <!-- ===== FULL MENU (outlets + franchise) ===== -->
+  <section class="section section--dark" id="menu">
+    <div class="container">
+      <h2 class="section__title" data-i18n="menu.title">Our <span>Menu</span></h2>
+      <p class="section__sub" data-i18n="menu.sub">The same menu at our main outlet and every Cheesy Bites franchise outlet.</p>
+      <div class="menu-boards" id="menuBoards"><!-- filled by script.js --></div>
+    </div>
+  </section>
+
   <!-- ===== WHERE TO BUY: MAKRO + CMHL SPOTLIGHT ===== -->
   <section class="section section--yellow" id="where-to-buy">
     <div class="container">
@@ -371,6 +381,81 @@
         </div>
       </div>
 
+      <!-- Packages -->
+      <h3 class="fr-subtitle" data-i18n="pk.title">Franchise packages</h3>
+      <p class="pk-intro" data-i18n="pk.intro">Choose the package that fits what you already have. Every package includes the brand, branding kit, opening stock, launch advertising and training.</p>
+      <div class="pk-cards">
+        <article class="pk-card">
+          <p class="pk-card__name" data-i18n="pk.p2name">Package 2 · Starter</p>
+          <p class="pk-card__price">13xxxxx <span>Ks</span></p>
+          <p class="pk-card__desc" data-i18n="pk.p2desc">For owners who already have a cart or counter and their own kitchen equipment.</p>
+          <ul data-i18n="pk.p2list"><li class="no">No food cart</li><li class="no">No kitchen equipment</li><li>Everything else included</li></ul>
+        </article>
+        <article class="pk-card">
+          <p class="pk-card__name" data-i18n="pk.p1name">Package 1</p>
+          <p class="pk-card__price">18xxxxx <span>Ks</span></p>
+          <p class="pk-card__desc" data-i18n="pk.p1desc">Comes with kitchen equipment. Build a cart in the same Cheesy Bites design in your own township.</p>
+          <ul data-i18n="pk.p1list"><li class="no">No food cart</li><li>Kitchen equipment included</li><li>Everything else included</li></ul>
+        </article>
+        <article class="pk-card pk-card--best">
+          <span class="pk-card__ribbon" data-i18n="pk.best">All-in-one</span>
+          <p class="pk-card__name" data-i18n="pk.fullname">Full Package</p>
+          <p class="pk-card__price">32xxxxx <span>Ks</span></p>
+          <p class="pk-card__desc" data-i18n="pk.fulldesc">Everything you need to open: branded food cart, kitchen equipment and all items below.</p>
+          <ul data-i18n="pk.fulllist"><li>Branded food cart</li><li>Kitchen equipment</li><li>Everything else included</li></ul>
+        </article>
+      </div>
+
+      <div class="pk-table-wrap">
+        <table class="pk-table">
+          <caption data-i18n="pk.tableTitle">What's included</caption>
+          <thead>
+            <tr><th scope="col" data-i18n="pk.colItem">Item</th><th scope="col" data-i18n="pk.colValue">Value</th><th scope="col" data-i18n="pk.colFull">Full</th><th scope="col" data-i18n="pk.colP1">Pkg 1</th><th scope="col" data-i18n="pk.colP2">Pkg 2</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="pk-icon">🎨</span><span><b data-i18n="pk.i1h">Branding kit</b><small data-i18n="pk.i1p">Stickers & vinyl for your cart or shop, counter sticker, in-store vinyl, menu stand & menu cards, corndog standee and 2 staff uniforms.</small></span></th>
+              <td class="pk-price">45xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">🛒</span><span><b data-i18n="pk.i2h">Branded food cart</b><small data-i18n="pk.i2p">4 ft × 3 ft cart, 7 ft high. Weather-resistant build, fully wrapped in premium Cheesy Bites vinyl.</small></span></th>
+              <td class="pk-price">13xxxxx <span>Ks</span></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">🔥</span><span><b data-i18n="pk.i3h">Kitchen equipment</b><small data-i18n="pk.i3p">Double-burner gas stove with gas cylinder, plus oil strainer, scissors, tongs, cutting board, sauce bottles and more.</small></span></th>
+              <td class="pk-price">60xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">📜</span><span><b data-i18n="pk.i4h">Franchise fee (3 years)</b><small data-i18n="pk.i4p">The right to use the Cheesy Bites name and brand for 3 years.</small></span></th>
+              <td class="pk-price">50xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">🍔</span><span><b data-i18n="pk.i5h">Opening food stock</b><small data-i18n="pk.i5p">Your first stock of burger, fries and chicken menu items, plus packaging, mayonnaise and sauces, all ready for opening day.</small></span></th>
+              <td class="pk-price">20xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">📣</span><span><b data-i18n="pk.i6h">Launch advertising</b><small data-i18n="pk.i6p">Custom ad designs for your shop, promoted to customers near your location.</small></span></th>
+              <td class="pk-price">10xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pk-icon">🧑‍🏫</span><span><b data-i18n="pk.i7h">Training & ongoing service</b><small data-i18n="pk.i7p">Guidance on daily operations, recipe training to grow sales, and free use of all our design files and product photos.</small></span></th>
+              <td class="pk-price">10xxxx <span>Ks</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pk-notes">
+        <div class="pk-note">
+          <img src="assets/img/outlet-franchise-2.jpg" alt="Cheesy Bites franchise food cart" loading="lazy" />
+          <div>
+            <h4 data-i18n="pk.noteTitle">Opening in a shop instead of a cart?</h4>
+            <p data-i18n="pk.noteBody">A cash counter is not included in any package. If you open in a shop room instead of the food cart, please build one cash counter (4 ft × 2 ft) in the Cheesy Bites colours and design.</p>
+          </div>
+        </div>
+        <p class="pk-disclaimer" data-i18n="pk.disclaimer">Prices are shown in part. Send an enquiry or message us for the exact package price and full details.</p>
+      </div>
+
       <!-- How it works -->
       <h3 class="fr-subtitle" data-i18n="fr.howTitle">How it works</h3>
       <ol class="fr-steps">
@@ -468,7 +553,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=7"></script>
-  <script src="script.js?v=7"></script>
+  <script src="i18n.js?v=10"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
