@@ -268,6 +268,7 @@ const I18N_MSG = {
     sent: 'Thank you! Your enquiry has been sent. We will contact you soon. 🧀',
     fallback: "Sorry, we couldn't send your enquiry online right now. Please send it by email or Messenger below.",
     phone: 'Please enter a valid phone number.',
+    wait: 'Thanks! Please wait a moment before sending another enquiry.',
   },
   my: {
     required: 'အရောင်ပြထားသော အကွက်များကို ဖြည့်ပေးပါ။',
@@ -275,5 +276,6 @@ const I18N_MSG = {
     sent: 'ကျေးဇူးတင်ပါသည်! သင့်စုံစမ်းမှုကို ပေးပို့ပြီးပါပြီ။ မကြာမီ ဆက်သွယ်ပါမည်။ 🧀',
     fallback: 'စိတ်မကောင်းပါ၊ ယခု အွန်လိုင်းမှ ပို့၍မရသေးပါ။ အောက်ပါ အီးမေးလ် သို့မဟုတ် Messenger မှတစ်ဆင့် ပို့ပေးပါ။',
     phone: 'ဖုန်းနံပါတ် မှန်ကန်စွာ ထည့်ပေးပါ။',
+    wait: 'ကျေးဇူးတင်ပါသည်။ နောက်ထပ် စုံစမ်းမှု မပို့မီ ခဏစောင့်ပေးပါ။',
   },
 };

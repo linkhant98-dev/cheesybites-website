@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Cheesy Bites | Food For Everyone</title>
   <meta name="description" content="Cheesy Bites is a Myanmar snack brand founded in 2020. Cheese sticks, corndogs, burgers, fries and frozen products, available at our outlets, supermarkets, wholesale and franchise locations." />
   <link rel="icon" href="assets/img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
 
@@ -305,7 +307,7 @@
             <li>Consistent quality, bulk packs ready to sell</li>
             <li>Cash &amp; Carry convenience at multiple store locations</li>
           </ul>
-          <a class="btn btn--makro" href="https://www.makromyanmar.com" target="_blank" rel="noopener" data-i18n="makro.btn">Visit Makro Myanmar →</a>
+          <a class="btn btn--makro" href="https://www.makromyanmar.com" target="_blank" rel="noopener noreferrer" data-i18n="makro.btn">Visit Makro Myanmar →</a>
         </div>
       </article>
 
@@ -400,7 +402,7 @@
           </ul>
           <div class="hero__cta">
             <a href="#franchiseForm" class="btn btn--dark" data-i18n="fr.cta1">Send an Enquiry</a>
-            <a href="https://m.me/cheesybitesygn" class="btn btn--ghost" target="_blank" rel="noopener" data-i18n="fr.cta2">Ask on Messenger</a>
+            <a href="https://m.me/cheesybitesygn" class="btn btn--ghost" target="_blank" rel="noopener noreferrer" data-i18n="fr.cta2">Ask on Messenger</a>
           </div>
         </div>
         <figure class="photo fr-hero__photo">
@@ -579,8 +581,8 @@
         </div>
         <form class="card form" id="franchiseForm" novalidate>
           <h3 data-i18n="form.title">Franchise Enquiry</h3>
-          <label><span><span data-i18n="form.name">Full name</span> <b class="req">*</b></span><input name="name" autocomplete="name" required /></label>
-          <label><span><span data-i18n="form.phone">Phone</span> <b class="req">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" required /></label>
+          <label><span><span data-i18n="form.name">Full name</span> <b class="req">*</b></span><input name="name" autocomplete="name" maxlength="80" required /></label>
+          <label><span><span data-i18n="form.phone">Phone</span> <b class="req">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" maxlength="20" pattern="[0-9+()\s-]{7,20}" required /></label>
           <div class="form__row">
             <label><span><span data-i18n="form.city">City</span> <b class="req">*</b></span>
               <select name="city" required>
@@ -605,19 +607,20 @@
               <option value="Other" data-i18n="city.other">Other</option>
               </select>
             </label>
-            <label><span data-i18n="form.township">Township</span><input name="township" autocomplete="address-level3" /></label>
+            <label><span data-i18n="form.township">Township</span><input name="township" autocomplete="address-level3" maxlength="60" /></label>
           </div>
           <label><span data-i18n="form.format">Format</span>
           <select name="format">
             <option value="Kiosk" data-i18n="opt.kiosk">Kiosk</option><option value="Mall counter" data-i18n="opt.mall">Mall counter</option><option value="Shopfront" data-i18n="opt.shop">Shopfront</option><option value="Not sure yet" data-i18n="opt.unsure">Not sure yet</option>
           </select>
           </label>
-          <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3"></textarea></label>
+          <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3" maxlength="1000"></textarea></label>
+          <div class="hp" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off" /></label></div>
           <button class="btn btn--dark btn--full" type="submit" id="formBtn" data-i18n="form.send">Send Enquiry</button>
           <p class="form__msg" id="formMsg" role="status"></p>
           <div class="form__fallback" id="formFallback" hidden>
             <a class="btn btn--dark" id="fbEmail" href="#" data-i18n="form.fbEmail">✉️ Send by Email</a>
-            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener" data-i18n="form.fbMessenger">💬 Message on Messenger</a>
+            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener noreferrer" data-i18n="form.fbMessenger">💬 Message on Messenger</a>
           </div>
         </form>
       </div>
@@ -632,13 +635,13 @@
         <div class="card visit__info">
           <p data-i18n="ct.address"><b>📍 Main Outlet</b><br />No.45, Pyay Road,<br />B-19/20/22, Taw Win Center,<br />Dagon Township, Yangon Region 11111, Myanmar</p>
           <p><b data-i18n="ct.email">✉️ Email</b><br /><a href="mailto:cheesy.bites11@gmail.com">cheesy.bites11@gmail.com</a></p>
-          <p><b>💬 Facebook</b><br /><a href="https://www.facebook.com/cheesybitesygn" target="_blank" rel="noopener">Cheesy Bites | Yangon</a></p>
+          <p><b>💬 Facebook</b><br /><a href="https://www.facebook.com/cheesybitesygn" target="_blank" rel="noopener noreferrer">Cheesy Bites | Yangon</a></p>
           <div class="visit__btns">
-            <a class="btn btn--dark" href="https://maps.google.com/?q=Taw+Win+Center+No.45+Pyay+Road+Dagon+Yangon" target="_blank" rel="noopener" data-i18n="ct.dir">Get Directions</a>
-            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener" data-i18n="ct.msg">Message Us</a>
+            <a class="btn btn--dark" href="https://maps.google.com/?q=Taw+Win+Center+No.45+Pyay+Road+Dagon+Yangon" target="_blank" rel="noopener noreferrer" data-i18n="ct.dir">Get Directions</a>
+            <a class="btn btn--ghost-dark" href="https://m.me/cheesybitesygn" target="_blank" rel="noopener noreferrer" data-i18n="ct.msg">Message Us</a>
           </div>
         </div>
-        <iframe class="visit__map" title="Map to Cheesy Bites"
+        <iframe class="visit__map" title="Map to Cheesy Bites" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
           src="https://www.google.com/maps?q=Taw+Win+Center+Pyay+Road+Dagon+Yangon&output=embed" loading="lazy"></iframe>
       </div>
     </div>
@@ -659,7 +662,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=17"></script>
-  <script src="script.js?v=17"></script>
+  <script src="i18n.js?v=18"></script>
+  <script src="script.js?v=18"></script>
 </body>
 </html>

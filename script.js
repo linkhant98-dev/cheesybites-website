@@ -1,3 +1,8 @@
+// ===== Clickjacking guard: never run inside another site's frame =====
+if (window.top !== window.self) {
+  try { window.top.location = window.self.location.href; } catch { document.documentElement.style.display = 'none'; }
+}
+
 // ===== Settings =====
 // Franchise enquiries are emailed to both addresses via FormSubmit (formsubmit.co).
 const ENQUIRY_TO = 'cheesy.bites11@gmail.com';
@@ -182,12 +187,24 @@ $('#tabs').addEventListener('click', e => {
 });
 
 // ===== Franchise form → email to both addresses =====
+const COOLDOWN_MS = 30000;
+let lastSent = 0;
+// Strip HTML tags and control characters, collapse whitespace, cap length
+const clean = (v, max = 200) => String(v || '')
+  .replace(/<[^>]*>/g, '')
+  .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '')
+  .replace(/[ \t]+/g, ' ')
+  .trim()
+  .slice(0, max);
+
 const form = $('#franchiseForm');
 const fallback = $('#formFallback');
 
 function validate(field) {
   const v = field.value.trim();
-  const ok = field.name === 'phone' ? v.replace(/\D/g, '').length >= 7 : v !== '';
+  const ok = field.name === 'phone'
+    ? /^[0-9+()\s-]{7,20}$/.test(v) && v.replace(/\D/g, '').length >= 7
+    : v !== '';
   field.classList.toggle('invalid', !ok);
   return ok;
 }
@@ -208,7 +225,18 @@ form.addEventListener('submit', async e => {
     return;
   }
 
-  const d = Object.fromEntries(new FormData(form));
+  const raw = Object.fromEntries(new FormData(form));
+  // Honeypot: real visitors never see or fill this field; bots do
+  if (raw.website) { msg.textContent = M.sent; form.reset(); return; }
+  if (Date.now() - lastSent < COOLDOWN_MS) { msg.textContent = M.wait; return; }
+  const d = {
+    name: clean(raw.name, 80),
+    phone: clean(raw.phone, 20),
+    city: clean(raw.city, 40),
+    township: clean(raw.township, 60),
+    format: clean(raw.format, 40),
+    message: clean(raw.message, 1000),
+  };
   const place = d.township ? `${d.township}, ${d.city}` : d.city;
   const subject = `Franchise Enquiry: ${d.name} (${place})`;
   btn.disabled = true;
@@ -230,6 +258,7 @@ form.addEventListener('submit', async e => {
         _cc: ENQUIRY_CC,
         _template: 'table',
         _captcha: 'false',
+        _honey: '',
       }),
     });
     const data = await res.json().catch(() => ({}));
@@ -238,6 +267,7 @@ form.addEventListener('submit', async e => {
       throw new Error(data.message || res.status);
     }
     msg.textContent = M.sent;
+    lastSent = Date.now();
     form.reset();
   } catch (err) {
     // Couldn't send online: offer email (pre-filled, to both addresses) or Messenger
