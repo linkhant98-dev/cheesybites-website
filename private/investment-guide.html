@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8" />
+<title>Cheesy Bites – Investment &amp; Profit Guide (Confidential)</title>
+<!-- PRIVATE: contains real package prices and profit estimates.
+     This folder is excluded from GitHub (.gitignore). Do not publish.
+     Build PDFs with:  bash private/build.sh -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --y: #ffc61a; --yd: #f5a800; --cream: #fff8e1; --k: #141414; --brown: #b5651d; --g: #1b8a2e; --gl: #e3f4e5; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; color: var(--k); font-size: 9.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html[lang="my"] body { font-family: 'Noto Sans Myanmar', 'Poppins', sans-serif; font-size: 9pt; line-height: 1.7; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+  .page:last-child { page-break-after: auto; }
+  .band { background: var(--y); border-bottom: 3px solid var(--k); padding: 7mm 13mm 6mm; display: flex; align-items: center; justify-content: space-between; }
+  .band img { height: 14mm; }
+  .conf { background: #c8102e; color: #fff; border: 2px solid var(--k); border-radius: 99px; padding: 1.2mm 4mm; font-weight: 700; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
+  html[lang="my"] .conf { letter-spacing: 0; text-transform: none; }
+  .body { padding: 7mm 13mm 0; flex: 1; display: flex; flex-direction: column; gap: 5mm; }
+  .foot { padding: 4mm 13mm 6mm; font-size: 7.5pt; opacity: .7; display: flex; justify-content: space-between; border-top: 1px solid #ddd; margin: 0 13mm; padding-left: 0; padding-right: 0; }
+  h1 { font-family: 'Anton', sans-serif; font-size: 27pt; line-height: 1.05; text-transform: uppercase; }
+  h1 span { font-family: 'Lobster', cursive; text-transform: none; color: var(--yd); font-weight: 400; }
+  h2 { font-family: 'Anton', sans-serif; font-size: 14pt; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 2.5mm; }
+  h2 small { font-family: 'Poppins', sans-serif; text-transform: none; font-size: 8pt; font-weight: 600; opacity: .65; letter-spacing: 0; margin-left: 2mm; }
+  html[lang="my"] h1, html[lang="my"] h2 { font-family: 'Noto Sans Myanmar', sans-serif; font-weight: 700; text-transform: none; letter-spacing: 0; }
+  html[lang="my"] h1 { font-size: 19pt; line-height: 1.5; }
+  html[lang="my"] h1 span { font-family: 'Noto Sans Myanmar', sans-serif; font-weight: 700; }
+  html[lang="my"] h2 { font-size: 12pt; line-height: 1.5; }
+  html[lang="my"] h2 small { font-family: 'Noto Sans Myanmar', sans-serif; }
+  .lead { font-size: 10pt; font-weight: 500; }
+
+  .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .pk { border: 2px solid var(--k); border-radius: 4mm; padding: 3.5mm 4mm; background: #fff; }
+  .pk.best { background: var(--k); color: #fff; }
+  .pk .name { font-weight: 700; font-size: 8pt; text-transform: uppercase; letter-spacing: .05em; color: var(--brown); }
+  .pk.best .name { color: var(--y); }
+  .pk .price { font-family: 'Anton', sans-serif; font-size: 19pt; line-height: 1.2; }
+  .pk .price small { font-family: 'Poppins', sans-serif; font-size: 8pt; opacity: .7; }
+  .pk p { font-size: 8pt; line-height: 1.45; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .kpi { border: 2px solid var(--k); border-radius: 3.5mm; padding: 3mm; background: var(--cream); }
+  .kpi.g { background: var(--gl); }
+  .kpi b { display: block; font-family: 'Anton', sans-serif; font-size: 15pt; line-height: 1.15; }
+  .kpi span { font-size: 7.6pt; font-weight: 600; line-height: 1.35; display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8pt; border: 2px solid var(--k); }
+  th, td { padding: 1.3mm 2mm; border-bottom: 1px solid #ddd; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; white-space: normal; }
+  thead th { background: var(--y); font-size: 7.2pt; line-height: 1.3; white-space: normal; vertical-align: bottom; }
+  td.p { background: var(--gl); color: var(--g); font-weight: 700; }
+  tr.sub td { background: var(--cream); font-weight: 700; text-align: left; font-size: 7.6pt; border-top: 1.5px solid var(--k); }
+  tr.tot td { background: var(--k); color: var(--y); font-weight: 700; }
+  html[lang="my"] table { font-size: 7.8pt; }
+
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .box { border: 2px solid var(--k); border-radius: 4mm; padding: 3.5mm 4mm; background: #fff; }
+  .box.dark { background: var(--k); color: #fff; }
+  .box h3 { font-size: 9.5pt; margin-bottom: 1.5mm; }
+  .row { display: flex; justify-content: space-between; gap: 3mm; padding: .8mm 0; border-bottom: 1px dashed rgba(0,0,0,.15); font-size: 8.4pt; }
+  .box.dark .row { border-color: rgba(255,255,255,.2); }
+  .row:last-child { border-bottom: 0; }
+  .row b { white-space: nowrap; }
+  .big { font-family: 'Anton', sans-serif; font-size: 14pt; color: var(--g); }
+  .box.dark .big { color: var(--y); }
+
+  .note { border: 2px solid var(--k); background: #fff59d; border-radius: 3mm; padding: 3mm 4mm; font-weight: 600; font-size: 8.4pt; }
+  .terms { list-style: none; display: grid; gap: 2mm; }
+  .terms li { border: 2px solid var(--k); border-radius: 3mm; padding: 2.5mm 3.5mm 2.5mm 11mm; position: relative; background: #fff; font-size: 8.3pt; line-height: 1.55; }
+  .terms li i { position: absolute; left: 3mm; top: 2.3mm; font-style: normal; }
+  .terms li b { color: #c8102e; }
+  .contact { background: var(--y); border-top: 3px solid var(--k); padding: 5mm 13mm; display: flex; justify-content: space-between; font-weight: 600; font-size: 8.5pt; }
+
+  /* About & trust pages */
+  .about { display: grid; grid-template-columns: 1.25fr 1fr; gap: 6mm; align-items: center; }
+  .about img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 3px solid var(--k); border-radius: 4mm; box-shadow: 2mm 2mm 0 var(--k); }
+  .about .lead { margin: 2.5mm 0 2mm; }
+  .sm { font-size: 8.4pt; }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .pill-card { background: var(--k); color: #fff; border-radius: 3.5mm; padding: 3.5mm; border-top: 2mm solid var(--y); }
+  .pill-card .num { font-family: 'Anton', sans-serif; color: var(--y); font-size: 14pt; }
+  .pill-card h3 { font-size: 9.5pt; margin: 1mm 0; }
+  .pill-card p { font-size: 7.8pt; line-height: 1.5; opacity: .9; }
+  .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; }
+  .ch { display: flex; gap: 2.5mm; border: 2px solid var(--k); border-radius: 3mm; padding: 2.5mm 3mm; background: #fff; }
+  .ch:last-child { grid-column: 1 / -1; }
+  .ch i { font-style: normal; font-size: 13pt; }
+  .ch h3 { font-size: 9pt; }
+  .ch p { font-size: 7.8pt; line-height: 1.45; }
+  .trust { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 3mm; margin-bottom: 3mm; }
+  .lab-badge { background: var(--k); color: #fff; border-radius: 3.5mm; padding: 3.5mm; font-size: 7.6pt; }
+  .lab-badge b { color: var(--y); font-size: 10pt; display: block; }
+  .lab-badge ul { list-style: none; margin-top: 2mm; display: grid; gap: 1mm; }
+  .lab-badge li::before { content: '✓ '; color: var(--y); }
+  .lab { border: 2px solid var(--k); border-radius: 3.5mm; padding: 3mm; background: #fff; }
+  .lab-top { display: flex; justify-content: space-between; align-items: center; font-size: 7pt; }
+  .lab .tag { background: var(--y); border: 1.5px solid var(--k); border-radius: 99px; padding: 0 2.5mm; font-weight: 700; }
+  .lab h3 { font-size: 9.5pt; margin-top: 1.5mm; }
+  .lab .apc { font-size: 7pt; opacity: .7; }
+  .lab .res { font-family: 'Anton', sans-serif; font-size: 20pt; color: var(--g); line-height: 1.2; }
+  .lab .res small { font-family: 'Poppins', sans-serif; font-size: 8pt; }
+  .lab .rng, .lab .meta { font-size: 7pt; opacity: .75; }
+  table.shelf { font-size: 7.8pt; }
+  table.shelf td:nth-child(3) { color: var(--g); font-weight: 700; }
+  .fine { font-size: 7pt; opacity: .7; margin-top: 1mm; }
+  .cover { display: grid; grid-template-columns: 52mm 1fr; gap: 4mm; align-items: start; }
+  .cover-stats { display: grid; gap: 2.5mm; }
+  .kpi small { display: block; font-size: 6.8pt; opacity: .7; font-weight: 600; }
+  .cities { list-style: none; display: flex; flex-wrap: wrap; gap: 1.5mm; }
+  .cities li { border: 1.5px solid var(--k); border-radius: 99px; padding: .3mm 2.5mm; font-size: 7.6pt; font-weight: 600; background: var(--cream); }
+  .cities li.hot { background: var(--y); }
+  .legend { font-size: 7pt; margin-top: 1.5mm; display: flex; align-items: center; gap: 1.5mm; }
+  .legend i { width: 3mm; height: 3mm; background: var(--y); border: 1.5px solid var(--k); border-radius: 50%; display: inline-block; }
+  .photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin-top: 3mm; }
+  .photos img { width: 100%; height: 26mm; object-fit: cover; border: 2px solid var(--k); border-radius: 2.5mm; }
+  .partners { display: flex; align-items: center; gap: 3mm; flex-wrap: wrap; margin-top: 3mm; font-size: 8pt; font-weight: 700; }
+  .partners img { height: 8mm; border: 1.5px solid var(--k); border-radius: 1.5mm; }
+  .partners img.w { background: #fff; padding: .5mm 1.5mm; }
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .q { margin: 0; border: 2px solid var(--k); border-radius: 3.5mm; padding: 3mm; background: #fff; display: flex; flex-direction: column; gap: 1.5mm; }
+  .q.dark { background: var(--k); color: #fff; }
+  .q blockquote { font-size: 7.8pt; line-height: 1.5; flex: 1; }
+  .q blockquote::before { content: '“'; font-family: 'Anton', sans-serif; color: var(--yd); font-size: 15pt; line-height: 0; vertical-align: -5pt; margin-right: 1mm; }
+  .q figcaption { font-size: 7.4pt; font-weight: 700; }
+  html[lang="my"] .q blockquote, html[lang="my"] .pill-card p, html[lang="my"] .ch p { font-size: 7.4pt; line-height: 1.6; }
+  .kpi b span { display: inline; font-size: inherit; font-weight: inherit; line-height: inherit; }
+  .lab-badge li b { display: inline; font-size: inherit; color: var(--y); }
+  .body { gap: 4mm; }
+  th, td { padding-top: 1.1mm; padding-bottom: 1.1mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE A: about ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div class="about">
+      <div>
+        <h1 data-t="aboutTitle"></h1>
+        <p class="lead" data-k="about.lead">A Myanmar snack brand bringing quality cheesy bites to retail shelves, food courts, wholesale channels and franchise locations.</p>
+        <p class="sm" data-k="about.body">Cheesy Bites started in early 2020 out of a love for snacks. Since then it has grown into a community of food lovers, partners and entrepreneurs, all sharing one idea: <b>Food For Everyone</b>. Quality snacks for everyday customers.</p>
+      </div>
+      <img src="../assets/img/tawwin-3.jpg" alt="" />
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>2020</b><span data-k="stat.founded">Founded</span></div>
+      <div class="kpi"><b data-stat="outlets">63</b><span data-k="stat.outlets">Outlets open</span></div>
+      <div class="kpi"><b><span data-stat="cities">21</span>+</b><span data-k="stat.cities">Cities in Myanmar</span></div>
+      <div class="kpi"><b>58K+</b><span data-k="fr.proof2">Facebook fans</span></div>
+    </div>
+    <div>
+      <h2 data-k="are.title">What <span>We Are</span></h2>
+      <div class="pillars"><div class="pill-card"><span class="num">01</span><h3 data-k="are.h1">Snack Craft</h3><p data-k="are.p1">Cheese sticks, burgers, fries, corndogs, potato sticks and frozen products, all made with the cheese pull people love.</p></div><div class="pill-card"><span class="num">02</span><h3 data-k="are.h2">Dual Channel</h3><p data-k="are.p2">Wholesale and retail presence through supermarkets, malls and delivery partners.</p></div><div class="pill-card"><span class="num">03</span><h3 data-k="are.h3">Franchise Growth</h3><p data-k="are.p3">A scalable food concept built for entrepreneurs and partner locations.</p></div></div>
+    </div>
+    <div>
+      <h2 data-k="do.title">What <span>We Do</span></h2>
+      <div class="channels"><div class="ch"><i>🏬</i><div><h3 data-k="do.h1">Our Outlets</h3><p data-k="do.p1">Fried fresh to order at company outlets in malls and food courts, including our main outlet at Taw Win Center, PinLon Hills and City Mall.</p></div></div><div class="ch"><i>🛒</i><div><h3 data-k="do.h2">Supermarket Retail</h3><p data-k="do.p2">Frozen products and ready-to-eat fries on the shelves at City Mart Holding (CMHL) stores: Ocean, City Mart and Marketplace.</p></div></div><div class="ch"><i>📦</i><div><h3 data-k="do.h3">Wholesale</h3><p data-k="do.p3">Bulk packs for restaurants, cafes, food stalls, caterers and retailers, available at all <b>Makro Myanmar</b> stores.</p></div></div><div class="ch"><i>🛵</i><div><h3 data-k="do.h4">Delivery</h3><p data-k="do.p4">Order Cheesy Bites to your door through foodpanda and our delivery partners.</p></div></div><div class="ch"><i>🤝</i><div><h3 data-k="do.h5">Franchise</h3><p data-k="do.p5">We help entrepreneurs open and run their own Cheesy Bites outlet, from setup to supply.</p></div></div></div>
+    </div>
+  </div>
+  <div class="foot"><span data-t="footL"></span><span class="pno"></span></div>
+</section>
+
+<!-- ============ PAGE B: trust ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div>
+      <h2 data-k="q.title">Quality &amp; <span>Food Safety</span></h2>
+      <div class="trust">
+        <div class="lab-badge"><b>🔬 FIDSL · MEPEA</b><span data-k="q.lab">Food Industries Development Supporting Laboratory, Myanmar Food Processors and Exporters Association</span><ul data-k="q.points"><li><b>ISO/IEC 17025:2017</b> accredited laboratory</li><li>Microbiological test on our signature cheese sticks</li><li>Bacteria count <b>more than 500× lower</b> than the lowest reference value</li><li>Registered company and tax registered</li></ul></div>
+        <div class="lab"><div class="lab-top"><span class="tag" data-k="q.micro">Micro test</span><small>No. 00072/22</small></div><h3 data-k="q.p1">Original Cheese Stick</h3><p class="apc" data-k="q.apc">Aerobic Plate Count (APC)</p><p class="res">&lt; 10 <small>cfu/g</small></p><p class="rng" data-k="q.range">Reference 5×10³ – 5×10⁵ cfu/g</p><p class="meta">AOAC 990.12 · <span data-k="q.nz">New Zealand</span> · 28.3.2022</p></div><div class="lab"><div class="lab-top"><span class="tag" data-k="q.micro">Micro test</span><small>No. 00073/22</small></div><h3 data-k="q.p2">Choco Cheese Stick</h3><p class="apc" data-k="q.apc">Aerobic Plate Count (APC)</p><p class="res">&lt; 10 <small>cfu/g</small></p><p class="rng" data-k="q.range">Reference 5×10³ – 5×10⁵ cfu/g</p><p class="meta">AOAC 990.12 · <span data-k="q.nz">New Zealand</span> · 28.3.2022</p></div>
+      </div>
+      <table class="shelf"><thead><tr><th data-k="q.colProduct">Product</th><th>TPC</th><th data-k="q.colShelf">Shelf life</th></tr></thead><tbody><tr><td data-k="q.s1">Original Cheese Stick</td><td>&lt; 10</td><td data-k="q.year">1 year*</td></tr><tr><td data-k="q.s2">Choco Cheese Stick</td><td>&lt; 10</td><td data-k="q.year">1 year*</td></tr><tr><td data-k="q.s3">Sausage Cheese Stick</td><td>&lt; 10</td><td data-k="q.year">1 year*</td></tr><tr><td data-k="q.s4">Potato Finger</td><td>&lt; 10</td><td data-k="q.year">1 year*</td></tr></tbody></table>
+      <p class="fine" data-k="q.note">* Tentative shelf life based on literature and experience. Depends on storage temperature, so please keep frozen.</p>
+    </div>
+    <div>
+      <h2 data-k="net.title">Cheesy Bites across Myanmar</h2>
+      <div class="cover">
+        <div class="cover-stats"><div class="kpi g"><b data-stat="outlets">63</b><span data-k="stat.outlets">Outlets open</span><small data-asof></small></div><div class="kpi g"><b><span data-stat="cities">21</span>+</b><span data-k="stat.cities">Cities in Myanmar</span></div></div>
+        <div><ul class="cities" id="cityList"></ul><p class="legend"><i></i> <span data-k="net.legend">Recently opened franchise outlets</span></p></div>
+      </div>
+      <div class="photos"><img src="../assets/img/tawwin-1.jpg" alt="" /><img src="../assets/img/franchise-shop-b.jpg" alt="" /><img src="../assets/img/franchise-shop-c.jpg" alt="" /><img src="../assets/img/outlet-franchise-2.jpg" alt="" /></div>
+      <div class="partners"><span data-k="more.title">Also available with</span><img src="../assets/img/partners/makro.png" class="w" alt="" /><img src="../assets/img/partners/ocean.jpg" alt="" /><img src="../assets/img/partners/marketplace.jpg" alt="" /><img src="../assets/img/partners/capital.png" class="w" alt="" /><img src="../assets/img/partners/foodpanda.jpg" alt="" /></div>
+    </div>
+  </div>
+  <div class="foot"><span data-t="footL"></span><span class="pno"></span></div>
+</section>
+
+<!-- ============ PAGE 1: overview ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div>
+      <h1 data-t="title"></h1>
+      <p class="lead" style="margin-top:3mm" data-t="intro"></p>
+    </div>
+    <div>
+      <h2 data-t="pkTitle"></h2>
+      <div class="packages" id="packages"></div>
+    </div>
+    <div>
+      <h2 data-t="kpiTitle"></h2>
+      <div class="kpis" id="kpis"></div>
+    </div>
+    <div class="note" data-t="lowNote"></div>
+    <div>
+      <h2><span data-t="dailyTitle"></span><small data-t="dailySub"></small></h2>
+      <table id="daily"></table>
+    </div>
+  </div>
+  <div class="foot"><span data-t="footL"></span><span class="pno"></span></div>
+</section>
+
+<!-- ============ PAGE 2: cost & profit per item (1) ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div>
+      <h2><span data-t="costTitle"></span><small data-t="costSub"></small></h2>
+      <table id="costA"></table>
+    </div>
+  </div>
+  <div class="foot"><span data-t="footL"></span><span class="pno"></span></div>
+</section>
+
+<!-- ============ PAGE 3: cost & profit per item (2) ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div>
+      <h2><span data-t="costTitle2"></span><small data-t="costSub"></small></h2>
+      <table id="costB"></table>
+    </div>
+    <div>
+      <h2 data-t="netTitle"></h2>
+      <div class="calc" id="calc"></div>
+    </div>
+    <div>
+      <h2 data-t="paybackTitle"></h2>
+      <table id="payback"></table>
+    </div>
+    <div class="note" data-t="paybackNote"></div>
+  </div>
+  <div class="foot"><span data-t="footL"></span><span class="pno"></span></div>
+</section>
+
+<!-- ============ PAGE 4: monthly profit, payback, terms ============ -->
+<section class="page">
+  <div class="band"><img src="../assets/img/logo.png" alt="Cheesy Bites" /><span class="conf" data-t="conf"></span></div>
+  <div class="body">
+    <div>
+      <h2 data-k="tm.title">What our partners say</h2>
+      <div class="quotes"><figure class="q dark"><blockquote data-k="tm.q1">Since opening, we haven't had a single complaint, and we're one of the top stock buyers. Once the economy recovers, it will only get better.</blockquote><figcaption>📍 <span data-k="tm.t1">Meiktila</span> · <span data-k="tm.franchise">Franchise outlet</span></figcaption></figure><figure class="q"><blockquote data-k="tm.q2">Within months of opening we were one of the top stock buyers. For 3–4 months the roads were closed and transport cost 2–3 times more, but our customers kept supporting us. We're still selling well, even in tough times.</blockquote><figcaption>📍 <span data-k="tm.t2">Lashio</span> · <span data-k="tm.franchise">Franchise outlet</span></figcaption></figure><figure class="q"><blockquote data-k="tm.q3">The shops we supply keep coming back to order from us. Regular orders are steady, and the potato corndog is a favourite.</blockquote><figcaption>📍 <span data-k="tm.t3">Taungoo</span> · <span data-k="tm.wholesale">Wholesaler</span></figcaption></figure><figure class="q"><blockquote data-k="tm.q4">Our burgers sell about 30 a day, and customers love the snacks.</blockquote><figcaption>📍 <span data-k="tm.t4">Nyaunglebin</span> · <span data-k="tm.wholesale">Wholesaler</span></figcaption></figure></div>
+    </div>
+    <div>
+      <h2 data-t="termsTitle"></h2>
+      <ul class="terms" id="terms"></ul>
+    </div>
+  </div>
+  <div class="contact"><span>💬 m.me/cheesybitesygn</span><span>✉️ cheesy.bites11@gmail.com</span><span>📍 <span data-t="addr"></span></span></div>
+</section>
+
+<script src="../data.js"></script>
+<script src="../i18n.js"></script>
+<script>
+/* ======================= DATA (edit numbers here) ======================= */
+// Package prices (Ks)
+const PACKAGES = [
+  { key: 'p2', price: 1350000 },
+  { key: 'p1', price: 1850000 },
+  { key: 'full', price: 3250000, best: true },
+];
+// Monthly fixed costs (Ks)
+const STAFF_GAS_OTHER = 350000;   // 1 staff + gas + other costs
+const RENT = 300000;              // average shop rent, if you rent
+const SELLING_DAYS = 26;
+
+// Cost & profit per serving: [name_en, name_my, base cost, extras, total cost, price1, price2, profit1, profit2]
+const COST = [
+  { sub: ['Corndogs (1 piece)', 'ကော်န်ဒေါ့ (၁ ချောင်း)'], extras: ['oil, packaging, mayonnaise, sauce', 'ဆီ၊ ပါကင်ခွက်၊ Mayonnaise၊ Sauce'] },
+  ['Original Cheese Corndog', 'မူရင်း ချိစ် ကော်န်ဒေါ့', 1250, 437, 1687, 2300, 2500, 613, 813],
+  ['Seaweed Full Cheese', 'ရေညှိ ချိစ်အပြည့်', 1400, 437, 1837, 2300, 2500, 463, 663],
+  ['Full Sausage Corndog', 'အသားချောင်းအပြည့် ကော်န်ဒေါ့', 1350, 437, 1787, 2300, 2500, 513, 713],
+  ['Sausage Cheese Corndog', 'အသားချောင်း ချိစ် ကော်န်ဒေါ့', 1350, 437, 1787, 2300, 2500, 513, 713],
+  ['Choco Cheese Corndog', 'ချောကလက် ချိစ် ကော်န်ဒေါ့', 1400, 437, 1837, 2300, 2500, 463, 663],
+  ['Potato Cheese Corndog', 'အာလူး ချိစ် ကော်န်ဒေါ့', 1400, 437, 1837, 2300, 2500, 463, 663],
+  ['Full Sausage Potato', 'အသားချောင်းအပြည့် အာလူး', 1450, 437, 1887, 2300, 2500, 413, 613],
+  { sub: ['Little Potato Stick (14,500 Ks/kg · 150 g per serving · 7 servings/kg)', 'အာလူးချောင်းတို (၁ ကီလို ၁၄,၅၀၀ ကျပ် · တစ်ပွဲ ၁၅၀ ဂရမ် · ၁ ကီလို ၇ ပွဲ)'], extras: ['oil, packaging, flavour powder', 'ဆီ၊ ပါကင်ခွက်၊ Flavor မှုန့်'] },
+  ['Original', 'မူရင်း', 2071, 434, 2506, 3000, 3500, 494, 994],
+  ['Mala', 'မာလာ', 2071, 491, 2563, 3000, 3500, 437, 937],
+  ['BBQ', 'BBQ', 2071, 520, 2591, 3000, 3500, 409, 909],
+  ['Hot & Spicy', 'စပ်စပ်', 2071, 491, 2563, 3000, 3500, 437, 937],
+  ['Seaweed', 'ရေညှိ', 2071, 534, 2606, 3000, 3500, 394, 894],
+  ['Cheesy', 'ချိစ်', 2071, 520, 2591, 3000, 3500, 409, 909],
+  { sub: ['Long Potato (25,000 Ks/kg pack · 90 g per serving · 10 servings)', 'အာလူးချောင်းရှည် (တစ်ပါကင် ၂၅,၀၀၀ ကျပ် · တစ်ပွဲ ၉၀ ဂရမ် · ၁၀ ပွဲ)'], extras: ['oil, packaging, flavour powder', 'ဆီ၊ ပါကင်ခွက်၊ Flavor မှုန့်'] },
+  ['Original', 'မူရင်း', 2500, 218, 2718, 4000, 4000, 1282, 1282],
+  ['Mala', 'မာလာ', 2500, 358, 2858, 4000, 4000, 1142, 1142],
+  ['BBQ', 'BBQ', 2500, 358, 2858, 4000, 4000, 1142, 1142],
+  ['Hot & Spicy', 'စပ်စပ်', 2500, 358, 2858, 4000, 4000, 1142, 1142],
+  ['Seaweed', 'ရေညှိ', 2500, 358, 2858, 4000, 4000, 1142, 1142],
+  ['Cheesy', 'ချိစ်', 2500, 358, 2858, 4500, 4500, 1642, 1642],
+  'BREAK',
+  { sub: ['Burgers (burger meat 30,000 Ks/kg · 20 patties)', 'ဘာဂါ (အသားပြား ၁ ကီလို ၃၀,၀၀၀ ကျပ် · ၂၀ ပြား)'], extras: ['bun, packaging, mayonnaise, sauce', 'ပေါင်မုန့်၊ ပါကင်ခွက်၊ Mayonnaise၊ Sauce'] },
+  ['Chicken Burger (single meat)', 'ကြက်သားဘာဂါ (အသားတစ်ထပ်)', 1500, 1207, 2707, 4500, 5000, 1793, 2293],
+  ['Chicken Burger (double meat)', 'ကြက်သားဘာဂါ (အသားနှစ်ထပ်)', 1500, 1207, 4207, 6000, 6500, 1793, 2293],
+  { sub: ['Chicken Popcorn (32,000 Ks/kg · 100 g per serving · 9 servings)', 'ချစ်ကင် ပေါ့ပ်ကော်န် (၁ ကီလို ၃၂,၀၀၀ ကျပ် · တစ်ပွဲ ၁၀၀ ဂရမ် · ၉ ပွဲ)'], extras: ['oil, packaging, chilli sauce', 'ဆီ၊ ပါကင်ခွက်၊ ချဉ်ငံ Sauce'] },
+  ['Chicken Popcorn', 'ချစ်ကင် ပေါ့ပ်ကော်န်', 3556, 620, 4176, 5500, 6000, 1324, 1824],
+  { sub: ['Chicken Tender (32,000 Ks/kg · 100 g per serving · 9 servings)', 'ကြက်ရင်ပုံသားလွှာကြော် (၁ ကီလို ၃၂,၀၀၀ ကျပ် · တစ်ပွဲ ၁၀၀ ဂရမ် · ၉ ပွဲ)'], extras: ['oil, packaging, chilli sauce', 'ဆီ၊ ပါကင်ခွက်၊ ချဉ်ငံ Sauce'] },
+  ['Chicken Tender', 'ကြက်ရင်ပုံသားလွှာကြော်', 3556, 620, 4176, 5500, 6000, 1324, 1824],
+  { sub: ['Chicken Skin (22,000 Ks/kg · 125 g per serving · 8 servings)', 'ကြက်အရေခွံကြော် (၁ ကီလို ၂၂,၀၀၀ ကျပ် · တစ်ပွဲ ၁၂၅ ဂရမ် · ၈ ပွဲ)'], extras: ['oil, packaging, chilli sauce', 'ဆီ၊ ပါကင်ခွက်၊ ချဉ်ငံ Sauce'] },
+  ['Chicken Skin', 'ကြက်အရေခွံကြော်', 2750, 687, 3437, 5000, 5500, 1563, 2063],
+  { sub: ['Cheese Ball – potato / corn / original (700 Ks each · 3 per serving)', 'ချိစ်ဘော – အာလူး / ပြောင်းဖူး / မူရင်း (တစ်လုံး ၇၀၀ ကျပ် · တစ်ပွဲ ၃ လုံး)'], extras: ['oil, packaging, chilli sauce', 'ဆီ၊ ပါကင်ခွက်၊ ချဉ်ငံ Sauce'] },
+  ['Cheese Ball (3 pieces)', 'ချိစ်ဘော (၃ လုံး)', 2100, 630, 2730, 3500, 4000, 770, 1270],
+  { sub: ['Drinks', 'အချိုရည်'], extras: ['cup, straw, ice', 'ပါကင်ခွက်၊ ပိုက်၊ ရေခဲ'] },
+  ['Juice', 'ဖျော်ရည်', 500, 350, 850, 3000, 3000, 2150, 2150],
+  ['Bubble Tea', 'Bubble Tea', 1500, 600, 2100, 3500, 4000, 1400, 1900],
+];
+
+// Daily sales estimate (lowest expected sales): [en, my, profit per serving, servings per day]
+const DAILY = [
+  ['Corndog', 'ကော်န်ဒေါ့', 813, 10, 8133, 211467],
+  ['Potato stick (original)', 'အာလူးချောင်း (မူရင်း)', 1282, 3, 3845, 99982],
+  ['Potato stick (mala)', 'အာလူးချောင်း (မာလာ)', 1142, 2, 2284, 59375],
+  ['Chicken burger (single meat)', 'ကြက်သားဘာဂါ (အသားတစ်ထပ်)', 2293, 5, 11464, 298071],
+  ['Chicken burger (double meat)', 'ကြက်သားဘာဂါ (အသားနှစ်ထပ်)', 2293, 2, 4586, 119229],
+  ['Chicken popcorn / chicken tender', 'ချစ်ကင်ပေါ့ပ်ကော်န် / ကြက်ရင်ပုံသားလွှာ', 1824, 3, 5473, 142307],
+  ['Juice', 'ဖျော်ရည်', 2150, 2, 4300, 111800],
+  ['Bubble tea', 'Bubble Tea', 1400, 2, 2800, 72800],
+  ['Cheese ball', 'ချိစ်ဘော', 1270, 2, 2540, 66040],
+];
+const DAILY_TOTAL = 45426;
+const MONTHLY_GROSS = 1181070;
+
+/* ======================= TEXT ======================= */
+const T = {
+  en: {
+    conf: 'Confidential · for franchise enquiries',
+    aboutTitle: 'Cheesy Bites · <span>Food For Everyone</span>',
+    title: 'Investment &amp; <span>Profit Guide</span>',
+    intro: 'Cost and profit for every menu item, expected daily and monthly profit based on minimum sales, and the estimated payback time for each package, after rent, staff, gas and other costs.',
+    pkTitle: 'Franchise packages',
+    p2: ['Package 2 · Starter', 'No food cart and no kitchen equipment. Everything else included.'],
+    p1: ['Package 1', 'Includes kitchen equipment. Build the cart in the Cheesy Bites design in your own township.'],
+    full: ['Full Package', 'Everything: branded food cart, kitchen equipment, branding kit, opening stock, ads and training.'],
+    kpiTitle: 'At a glance (estimates)',
+    k1: 'Gross profit per month (minimum sales)', k2: 'Net profit per month, no rent', k3: 'Net profit per month, with rent', k4: 'Full Package payback',
+    months: 'months',
+    lowNote: '⚠️ All figures are estimates calculated with the LOWEST expected daily sales. Depending on your location you may sell more, so profit can be higher and payback faster.',
+    dailyTitle: 'Daily sales estimate', dailySub: '26 selling days per month',
+    dh: ['Menu', 'Profit / serving (Ks)', 'Servings per day', 'Profit per day (Ks)', 'Profit per month (Ks)'],
+    total: 'Total',
+    costTitle: 'Cost & profit per item', costTitle2: 'Cost & profit per item (continued)',
+    costSub: 'all amounts in Ks · price (1) / (2) = two price options',
+    ch: ['Item', 'Base cost', 'Extras', 'Total cost', 'Price (1)', 'Price (2)', 'Profit (1)', 'Profit (2)'],
+    extras: 'Extras',
+    netTitle: 'Monthly net profit (after costs)',
+    noRent: 'If you DON’T pay rent', withRent: 'If you pay rent',
+    gross: 'Gross profit per month', staff: 'Staff (1 person) + gas + other costs', rent: 'Average shop rent',
+    net: 'Net profit per month', year: 'Net profit per year',
+    paybackTitle: 'Estimated payback time',
+    ph: ['Package', 'Investment (Ks)', 'Payback, no rent', 'Payback, with rent'],
+    paybackNote: '💡 Payback is calculated with the lowest sales. Sales usually grow once your shop is known in the area, so you can recover your investment sooner. After about 5 months, the profit is yours.',
+    termsTitle: 'Payment & training terms',
+    terms: [
+      ['💳', '<b>50% deposit</b> of the package price is paid when you confirm, together with the signed agreement. Within one month we prepare everything you need and train you in frying corndogs and making the full menu. The <b>remaining 50%</b> is paid when the shop is ready to open.'],
+      ['🚚', 'Franchisees outside Yangon pay the <b>delivery fee</b> for the food cart and goods.'],
+      ['🎓', '<b>In-person training in Yangon:</b> a <b>50,000 Ks</b> fee covers the food and materials used for training. Up to <b>2 people</b>; each extra person is 20,000 Ks.'],
+      ['📹', '<b>Can’t come to Yangon?</b> We train you <b>online by video call</b>. The 50,000 Ks materials fee still applies.'],
+      ['❄️', 'Cheesy Bites corndogs come ready-made and frozen. You don’t need a big kitchen team or daily raw-material shopping. We send stock by car or bus gate, saving you time and cost.'],
+      ['👩‍🍳', 'No dedicated cook needed, which saves salary. We teach you corndog frying and storage, burgers, chicken popcorn, potato sticks and the rest of the menu.'],
+    ],
+    footL: 'Cheesy Bites · Investment & Profit Guide · Estimates only, not a guarantee of earnings',
+    addr: 'No.45 Pyay Road, Taw Win Center, Yangon',
+  },
+  my: {
+    conf: 'လျှို့ဝှက်ချက် · ဖရန်ချိုက်စ် စုံစမ်းသူများအတွက်',
+    aboutTitle: 'Cheesy Bites · <span>Food For Everyone</span>',
+    title: 'ရင်းနှီးမြှုပ်နှံမှုနှင့် <span>အမြတ်ငွေ လမ်းညွှန်</span>',
+    intro: 'မုန့်တစ်မျိုးချင်းစီ၏ ကုန်ကျစရိတ်နှင့် အသားတင်အမြတ်၊ အနည်းဆုံး ရောင်းအားဖြင့် တွက်ချက်ထားသော တစ်ရက်စာ နှင့် တစ်လစာ အမြတ်၊ ဆိုင်ခန်းခ၊ ဝန်ထမ်းခ၊ gas နှင့် အခြားကုန်ကျစရိတ်များ နုတ်ပြီး package အလိုက် အရင်းကြေကာလ ခန့်မှန်းချက်။',
+    pkTitle: 'ဖရန်ချိုက်စ် ပက်ကေ့ချ်များ',
+    p2: ['Package 2 · စတင်သူအတွက်', 'လှည်းနှင့် မီးဖိုချောင်သုံးပစ္စည်း မပါ။ ကျန်အားလုံး ပါဝင်။'],
+    p1: ['Package 1', 'မီးဖိုချောင်သုံးပစ္စည်း ပါဝင်။ လှည်းကို Cheesy Bites ပုံစံတူ မိမိမြို့နယ်တွင်း ပြုလုပ်နိုင်။'],
+    full: ['Full Package', 'အစုံ: Cheesy Bites လှည်း၊ မီးဖိုချောင်သုံးပစ္စည်း၊ ဆိုင်အလှဆင်ပစ္စည်း၊ ကနဦးကုန်ပစ္စည်း၊ ကြော်ငြာနှင့် သင်တန်း။'],
+    kpiTitle: 'အနှစ်ချုပ် (ခန့်မှန်းချက်)',
+    k1: 'တစ်လ အမြတ် (အနည်းဆုံး ရောင်းအား)', k2: 'တစ်လ အသားတင်အမြတ် (အခန်းငှားခ မရှိပါက)', k3: 'တစ်လ အသားတင်အမြတ် (အခန်းငှားခ ရှိပါက)', k4: 'Full Package အရင်းကြေကာလ',
+    months: 'လ',
+    lowNote: '⚠️ တွက်ချက်ထားသော ကိန်းဂဏန်းများအားလုံးသည် ရောင်းအား အနည်းဆုံးဖြင့် တွက်ထားခြင်း ဖြစ်ပါသည်။ မိမိဆိုင်တည်နေရာပေါ် လိုက်၍ ပိုရောင်းရပါက အမြတ်ပိုများပြီး အရင်းပိုမြန်မြန် ကြေပါမည်။',
+    dailyTitle: 'နေ့စဉ် ရောင်းအား ခန့်မှန်းချက်', dailySub: 'တစ်လ အရောင်းရက် ၂၆ ရက်',
+    dh: ['မီနူး', 'တစ်ခုစာ အမြတ် (ကျပ်)', 'နေ့စဉ် ရောင်းအား', 'နေ့စဉ် အမြတ် (ကျပ်)', 'လစဉ် အမြတ် (ကျပ်)'],
+    total: 'စုစုပေါင်း',
+    costTitle: 'မုန့်တစ်မျိုးချင်း ကုန်ကျစရိတ်နှင့် အမြတ်', costTitle2: 'မုန့်တစ်မျိုးချင်း ကုန်ကျစရိတ်နှင့် အမြတ် (ဆက်)',
+    costSub: 'ကျပ်ဖြင့် · ရောင်းဈေး (1) / (2) = ဈေးနှုန်း ၂ မျိုး',
+    ch: ['အမျိုးအစား', 'မုန့်အရင်း', 'အထွေထွေ', 'တစ်ခုစာ ကုန်ကျစရိတ်', 'ရောင်းဈေး (1)', 'ရောင်းဈေး (2)', 'အမြတ် (1)', 'အမြတ် (2)'],
+    extras: 'အထွေထွေ',
+    netTitle: 'လစဉ် အသားတင်အမြတ် (ကုန်ကျစရိတ် နုတ်ပြီး)',
+    noRent: 'အခန်းငှားခ မရှိပါက', withRent: 'အခန်းငှားခ ရှိပါက',
+    gross: 'လစဉ် အမြတ်', staff: 'ဝန်ထမ်းခ (၁ ယောက်) + gas နှင့် အခြားကုန်ကျစရိတ်', rent: 'ပျမ်းမျှ အခန်းငှားခ',
+    net: 'လစဉ် အသားတင်အမြတ်', year: 'နှစ်စဉ် အသားတင်အမြတ်',
+    paybackTitle: 'အရင်းကြေကာလ ခန့်မှန်းချက်',
+    ph: ['ပက်ကေ့ချ်', 'ကနဦး အရင်းနှီး (ကျပ်)', 'အခန်းငှားခ မရှိပါက', 'အခန်းငှားခ ရှိပါက'],
+    paybackNote: '💡 အရင်းကြေကာလကို ရောင်းအား အနည်းဆုံးဖြင့် တွက်ထားခြင်း ဖြစ်ပါသည်။ ဆိုင်လူသိများလာသည်နှင့် ရောင်းအားတက်လာတတ်သဖြင့် ယခုထက် အချိန်တိုအတွင်း အရင်းကြေနိုင်ပြီး ၅ လနောက်ပိုင်းသည် မိမိအတွက် အမြတ်သာ ဖြစ်ပါသည်။',
+    termsTitle: 'ငွေပေးချေမှုနှင့် သင်တန်း စည်းကမ်းများ',
+    terms: [
+      ['💳', 'ဆိုင်ဖွင့်ရန် confirm ဖြစ်ပါက Package တန်ဖိုး၏ <b>၅၀%</b> ကို စာချုပ်ချုပ်ချိန်တွင် ပေးချေရပါမည်။ ၁ လအတွင်း လိုအပ်သော ပစ္စည်းများကို ပြင်ဆင်ပေးပြီး Corndog ကြော်နည်းနှင့် မီနူးများ ပြုလုပ်ပုံကို သင်ကြားပေးပါမည်။ <b>ကျန် ၅၀%</b> ကို ဆိုင်ဖွင့်ရန် အဆင်သင့်ဖြစ်ချိန်တွင် ပေးချေရပါမည်။'],
+      ['🚚', 'နယ်မြို့မှ ဖရန်ချိုက်စ်ယူသူများအနေဖြင့် လှည်းနှင့် ကုန်ပစ္စည်း <b>Delivery fee</b> ကို ဖရန်ချိုက်စ်ယူသူဘက်မှ ကျခံရပါမည်။'],
+      ['🎓', '<b>ရန်ကုန်တွင် ကိုယ်တိုင်လာရောက် Training</b> တက်မည့်သူများအနေဖြင့် Training အတွက် အသုံးပြုမည့် မုန့်များနှင့် အခြားပစ္စည်းများ ကုန်ကျစရိတ်အဖြစ် <b>၅၀,၀၀၀ ကျပ်</b> ပေးဆောင်ရပါမည်။ အများဆုံး <b>၂ ယောက်</b> တက်ရောက်ခွင့်ရှိပြီး ၂ ယောက်ထက်ပိုပါက တစ်ယောက်လျှင် ၂၀,၀၀၀ ကျပ် ထပ်မံပေးဆောင်ရပါမည်။'],
+      ['📹', '<b>နယ်မှ ကိုယ်တိုင် မလာနိုင်ပါက</b> <b>Online Video Call</b> ဖြင့် ပြသသင်ကြားပေးပါမည်။ Training ပစ္စည်း ကုန်ကျစရိတ် ၅၀,၀၀၀ ကျပ် ပေးဆောင်ရပါမည်။'],
+      ['❄️', 'Cheesy Bites ၏ Corndog များသည် အသင့်ပြုလုပ်ပြီး အေးခဲထားခြင်းဖြစ်၍ လူကြီးမင်းတို့အနေဖြင့် မုန့်လုပ်ရန် အချိန်မကုန်၊ ကုန်ကြမ်းပစ္စည်းအတွက် နေ့စဉ် ရှာဖွေရန် မလိုပါ။ ကားဂိတ်မှ တစ်ဆင့် ပို့ပေးသဖြင့် အချိန်နှင့် ကုန်ကျစရိတ် သက်သာစေပါသည်။'],
+      ['👩‍🍳', 'မုန့်လုပ်ရန် လူတစ်ယောက် သီးသန့် မလိုသဖြင့် ဝန်ထမ်းစရိတ် သက်သာပါသည်။ Corndog ကြော်နည်း/ထားသိုနည်း၊ Burger ပြုလုပ်နည်း၊ Chicken popcorn ကြော်နည်း၊ အာလူးချောင်း ကြော်နည်းနှင့် အခြားမီနူးများကို သင်ကြားပေးပါမည်။'],
+    ],
+    footL: 'Cheesy Bites · ရင်းနှီးမြှုပ်နှံမှုနှင့် အမြတ်ငွေ လမ်းညွှန် · ခန့်မှန်းချက်သာ ဖြစ်ပြီး ဝင်ငွေ အာမခံချက် မဟုတ်ပါ',
+    addr: 'အမှတ် ၄၅ ပြည်လမ်း၊ တော်ဝင်စင်တာ၊ ရန်ကုန်',
+  },
+};
+
+/* ======================= RENDER ======================= */
+const L = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'my';
+document.documentElement.lang = L;
+const t = T[L];
+const n = v => Number(v).toLocaleString('en-US');
+const nameIdx = L === 'my' ? 1 : 0;
+document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = t[el.dataset.t]; });
+
+const netNoRent = MONTHLY_GROSS - STAFF_GAS_OTHER;
+const netRent = netNoRent - RENT;
+const fmtMonths = v => `~${Math.round(v * 2) / 2} ${t.months}`;
+
+document.getElementById('packages').innerHTML = PACKAGES.map(p => `
+  <div class="pk${p.best ? ' best' : ''}"><p class="name">${t[p.key][0]}</p><p class="price">${n(p.price)} <small>Ks</small></p><p>${t[p.key][1]}</p></div>`).join('');
+
+const full = PACKAGES.find(p => p.key === 'full').price;
+document.getElementById('kpis').innerHTML = `
+  <div class="kpi"><b>${n(MONTHLY_GROSS)}</b><span>${t.k1}</span></div>
+  <div class="kpi g"><b>${n(netNoRent)}</b><span>${t.k2}</span></div>
+  <div class="kpi g"><b>${n(netRent)}</b><span>${t.k3}</span></div>
+  <div class="kpi"><b>~${Math.round(full / netNoRent)}–${Math.round(full / netRent)} ${t.months}</b><span>${t.k4}</span></div>`;
+
+document.getElementById('daily').innerHTML = `
+  <thead><tr>${t.dh.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+  <tbody>${DAILY.map(r => `<tr><td>${r[nameIdx]}</td><td>${n(r[2])}</td><td>${r[3]}</td><td>${n(r[4])}</td><td class="p">${n(r[5])}</td></tr>`).join('')}
+  <tr class="tot"><td>${t.total}</td><td></td><td></td><td>${n(DAILY_TOTAL)}</td><td>${n(MONTHLY_GROSS)}</td></tr></tbody>`;
+
+const head = `<thead><tr>${t.ch.map(h => `<th>${h}</th>`).join('')}</tr></thead>`;
+const rowsHtml = rows => rows.map(r => r.sub
+  ? `<tr class="sub"><td colspan="8">${r.sub[nameIdx]} <span style="font-weight:500;opacity:.7">· ${t.extras}: ${r.extras[nameIdx]}</span></td></tr>`
+  : `<tr><td>${r[nameIdx]}</td>${r.slice(2, 7).map(v => `<td>${n(v)}</td>`).join('')}<td class="p">${n(r[7])}</td><td class="p">${n(r[8])}</td></tr>`).join('');
+const brk = COST.indexOf('BREAK');
+document.getElementById('costA').innerHTML = head + '<tbody>' + rowsHtml(COST.slice(0, brk)) + '</tbody>';
+document.getElementById('costB').innerHTML = head + '<tbody>' + rowsHtml(COST.slice(brk + 1)) + '</tbody>';
+
+document.getElementById('calc').innerHTML = [[t.noRent, 0, netNoRent], [t.withRent, RENT, netRent]].map(([title, rent, net], i) => `
+  <div class="box${i ? '' : ' dark'}"><h3>${title}</h3>
+    <div class="row"><span>${t.gross}</span><b>${n(MONTHLY_GROSS)}</b></div>
+    <div class="row"><span>− ${t.staff}</span><b>${n(STAFF_GAS_OTHER)}</b></div>
+    ${rent ? `<div class="row"><span>− ${t.rent}</span><b>${n(rent)}</b></div>` : ''}
+    <div class="row"><span>${t.net}</span><b class="big">${n(net)}</b></div>
+    <div class="row"><span>${t.year} (×12)</span><b>${n(net * 12)}</b></div>
+  </div>`).join('');
+
+document.getElementById('payback').innerHTML = `
+  <thead><tr>${t.ph.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+  <tbody>${PACKAGES.slice().reverse().map(p => `<tr><td><b>${t[p.key][0]}</b></td><td>${n(p.price)}</td><td class="p">${fmtMonths(p.price / netNoRent)}</td><td class="p">${fmtMonths(p.price / netRent)}</td></tr>`).join('')}</tbody>`;
+
+document.getElementById('terms').innerHTML = t.terms.map(([i, s]) => `<li><i>${i}</i>${s}</li>`).join('');
+// Shared website text (Myanmar from i18n.js), numbers and cities from data.js
+if (L === 'my') document.querySelectorAll('[data-k]').forEach(el => { if (I18N_MY[el.dataset.k]) el.innerHTML = I18N_MY[el.dataset.k]; });
+document.querySelectorAll('[data-stat]').forEach(el => { el.textContent = SITE_STATS[el.dataset.stat]; });
+document.getElementById('cityList').innerHTML = CITIES.map(c => `<li${c.hot ? ' class="hot"' : ''}>${c[L] || c.en}</li>`).join('');
+const MYD = '၀၁၂၃၄၅၆၇၈၉', toMy = s => String(s).replace(/\d/g, d => MYD[d]);
+const [yy, mm, dd] = SITE_STATS.asOf.split('-').map(Number);
+const MON = { en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], my: ['ဇန်နဝါရီ','ဖေဖော်ဝါရီ','မတ်','ဧပြီ','မေ','ဇွန်','ဇူလိုင်','ဩဂုတ်','စက်တင်ဘာ','အောက်တိုဘာ','နိုဝင်ဘာ','ဒီဇင်ဘာ'] };
+document.querySelectorAll('[data-asof]').forEach(el => { el.textContent = L === 'my' ? `${toMy(yy)} ${MON.my[mm-1]} ${toMy(dd)} ရက်နေ့ထိ` : `as of ${dd} ${MON.en[mm-1]} ${yy}`; });
+const pnos = document.querySelectorAll('.pno');
+const allPages = [...document.querySelectorAll('.page')];
+pnos.forEach(el => { el.textContent = `${allPages.indexOf(el.closest('.page')) + 1} / ${allPages.length}`; });
+</script>
+</body>
+</html>
