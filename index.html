@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
 
@@ -114,7 +114,7 @@
         <p data-i18n="about.body">Cheesy Bites started in early 2020 out of a love for snacks. Since then it has grown into a community of food lovers, partners and entrepreneurs, all sharing one idea: <b>Food For Everyone</b>. Quality snacks for everyday customers.</p>
         <ul class="trust">
           <li data-i18n="about.trust1">✅ Registered company &amp; tax registered</li>
-          <li data-i18n="about.trust2">🧪 Food-safety lab tested</li>
+          <li data-i18n="about.trust2"><a href="#quality">🧪 Food-safety lab tested</a></li>
         </ul>
       </div>
     </div>
@@ -176,6 +176,66 @@
           <h3 data-i18n="do.h5">Franchise</h3>
           <p data-i18n="do.p5">We help entrepreneurs open and run their own Cheesy Bites outlet, from setup to supply.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUALITY & FOOD SAFETY ===== -->
+  <section class="section section--white" id="quality">
+    <div class="container">
+      <h2 class="section__title" data-i18n="q.title">Quality &amp; <span>Food Safety</span></h2>
+      <p class="section__sub" data-i18n="q.sub">Our products are tested by an accredited food laboratory, so you can enjoy every cheesy bite with confidence.</p>
+
+      <div class="lab">
+        <div class="lab__intro">
+          <div class="lab__badge">
+            <span class="lab__badge-icon">🔬</span>
+            <div>
+              <strong>FIDSL · MEPEA</strong>
+              <span data-i18n="q.lab">Food Industries Development Supporting Laboratory, Myanmar Food Processors and Exporters Association</span>
+            </div>
+          </div>
+          <ul class="lab__points" data-i18n="q.points"><li><b>ISO/IEC 17025:2017</b> accredited laboratory</li><li>Microbiological test on our signature cheese sticks</li><li>Bacteria count <b>more than 500× lower</b> than the lowest reference value</li><li>Registered company and tax registered</li></ul>
+        </div>
+        <div class="lab__cards">
+          <article class="lab-card">
+            <div class="lab-card__head"><span class="lab-card__tag" data-i18n="q.micro">Micro test</span><span class="lab-card__no">No. 00072/22</span></div>
+            <h4 data-i18n="q.p1">Original Cheese Stick</h4>
+            <p class="lab-card__param" data-i18n="q.apc">Aerobic Plate Count (APC)</p>
+            <div class="lab-card__result"><strong>&lt; 10</strong><span>cfu/g</span></div>
+            <div class="lab-meter" aria-hidden="true"><span class="lab-meter__you"></span><span class="lab-meter__range"></span></div>
+            <div class="lab-meter__labels"><span data-i18n="q.result">Our result</span><span data-i18n="q.range">Reference 5×10³ – 5×10⁵ cfu/g</span></div>
+            <dl class="lab-card__meta">
+              <div><dt data-i18n="q.method">Method</dt><dd>AOAC 990.12 (Petrifilm)</dd></div>
+              <div><dt data-i18n="q.standard">Standard</dt><dd data-i18n="q.nz">New Zealand</dd></div>
+              <div><dt data-i18n="q.issued">Issued</dt><dd>28.3.2022</dd></div>
+            </dl>
+          </article>
+          <article class="lab-card">
+            <div class="lab-card__head"><span class="lab-card__tag" data-i18n="q.micro">Micro test</span><span class="lab-card__no">No. 00073/22</span></div>
+            <h4 data-i18n="q.p2">Choco Cheese Stick</h4>
+            <p class="lab-card__param" data-i18n="q.apc">Aerobic Plate Count (APC)</p>
+            <div class="lab-card__result"><strong>&lt; 10</strong><span>cfu/g</span></div>
+            <div class="lab-meter" aria-hidden="true"><span class="lab-meter__you"></span><span class="lab-meter__range"></span></div>
+            <div class="lab-meter__labels"><span data-i18n="q.result">Our result</span><span data-i18n="q.range">Reference 5×10³ – 5×10⁵ cfu/g</span></div>
+            <dl class="lab-card__meta">
+              <div><dt data-i18n="q.method">Method</dt><dd>AOAC 990.12 (Petrifilm)</dd></div>
+              <div><dt data-i18n="q.standard">Standard</dt><dd data-i18n="q.nz">New Zealand</dd></div>
+              <div><dt data-i18n="q.issued">Issued</dt><dd>28.3.2022</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+
+      <div class="shelf">
+        <h3 class="fr-subtitle fr-subtitle--left" data-i18n="q.shelfTitle">Shelf life of our frozen products</h3>
+        <div class="pk-table-wrap shelf__wrap">
+          <table class="pk-table shelf__table">
+            <thead><tr><th scope="col" data-i18n="q.colProduct">Product</th><th scope="col">TPC</th><th scope="col" data-i18n="q.colShelf">Shelf life</th></tr></thead>
+            <tbody><tr><td data-i18n="q.s1">Original Cheese Stick</td><td>&lt; 10</td><td data-i18n="q.year">1 year*</td></tr><tr><td data-i18n="q.s2">Choco Cheese Stick</td><td>&lt; 10</td><td data-i18n="q.year">1 year*</td></tr><tr><td data-i18n="q.s3">Sausage Cheese Stick</td><td>&lt; 10</td><td data-i18n="q.year">1 year*</td></tr><tr><td data-i18n="q.s4">Potato Finger</td><td>&lt; 10</td><td data-i18n="q.year">1 year*</td></tr></tbody>
+          </table>
+        </div>
+        <p class="shelf__note" data-i18n="q.note">* Tentative shelf life based on literature and experience. Depends on storage temperature, so please keep frozen.</p>
       </div>
     </div>
   </section>
@@ -565,7 +625,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=11"></script>
-  <script src="script.js?v=11"></script>
+  <script src="i18n.js?v=13"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
