@@ -76,10 +76,10 @@ const MENU = [
       { label: 'အာလူးချောင်းရှည်', items: ['Signature အာလူးချောင်းရှည်'] } ] } },
   { icon: '🍔', img: 'burger.jpg', pos: 'center 70%', special: true, wide: true, span: true,
     en: { title: 'Burgers & Hotdogs', groups: [
-      { label: 'Burgers', items: ['Chicken Burger (single meat)', 'Chicken Burger (double meat)', 'Black Chicken Burger', 'Beef Burger'] },
+      { label: 'Burgers', items: ['Chicken Burger (single meat)', 'Chicken Burger (double meat)', 'Prawn Burger', 'Beef Burger'] },
       { label: 'Hotdogs', items: ['Cheesy / Mayo Chicken-Sausage Hotdog', 'Cheesy / Mayo Beef Hotdog'] } ] },
     my: { title: 'ဘာဂါနှင့် ဟော့ဒေါ့', groups: [
-      { label: 'ဘာဂါ', items: ['ကြက်သားဘာဂါ (အသားတစ်ထပ်)', 'ကြက်သားဘာဂါ (အသားနှစ်ထပ်)', 'Black Chicken ဘာဂါ', 'အမဲသားဘာဂါ'] },
+      { label: 'ဘာဂါ', items: ['ကြက်သားဘာဂါ (အသားတစ်ထပ်)', 'ကြက်သားဘာဂါ (အသားနှစ်ထပ်)', 'ပုစွန်ဘာဂါ', 'အမဲသားဘာဂါ'] },
       { label: 'ဟော့ဒေါ့', items: ['ချိစ် / မာယို ကြက်သားအသားချောင်း ဟော့ဒေါ့', 'ချိစ် / မာယို အမဲသား ဟော့ဒေါ့'] } ] } },
 ];
 const MENU_TEXT = {
