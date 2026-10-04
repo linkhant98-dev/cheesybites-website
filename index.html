@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
 
@@ -55,8 +55,8 @@
         </a>
         <ul class="hero__stats">
           <li><strong data-count="2020" data-start="2000">2000</strong><span data-i18n="stat.founded">Founded</span></li>
-          <li><strong data-count="6">0</strong><span data-i18n="stat.company">Company outlets</span></li>
-          <li><strong data-count="58">0</strong><span data-i18n="stat.franchise">Franchise outlets</span></li>
+          <li><strong data-count="63">0</strong><span data-i18n="stat.outlets">Outlets open</span></li>
+          <li><strong><span data-count="21">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></li>
         </ul>
       </div>
 
@@ -294,10 +294,19 @@
     <div class="container">
       <h2 class="section__title" data-i18n="out.title">Our <span>Outlets</span></h2>
       <div class="network">
-        <div class="network__stat"><strong data-count="6">0</strong><span data-i18n="stat.company">Company outlets</span></div>
-        <div class="network__stat"><strong data-count="58">0</strong><span data-i18n="stat.franchise">Franchise outlets</span></div>
+        <div class="network__stat"><strong data-count="63">0</strong><span data-i18n="stat.outlets">Outlets open</span><small data-i18n="stat.asof">as of 4 Oct 2026</small></div>
+        <div class="network__stat"><strong><span data-count="21">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></div>
         <div class="network__stat"><strong>🇲🇲</strong><span data-i18n="stat.coverage">Wholesale coverage across Myanmar</span></div>
       </div>
+      <div class="across">
+        <div class="across__text">
+          <h3 class="fr-subtitle fr-subtitle--left" data-i18n="net.title">Cheesy Bites across Myanmar</h3>
+          <p data-i18n="net.body">From Yangon to Mandalay, Mawlamyine to Lashio, Cheesy Bites outlets are open in towns all over the country, and the list keeps growing.</p>
+          <p class="across__legend"><span class="dot"></span> <span data-i18n="net.legend">Recently opened franchise outlets</span></p>
+        </div>
+        <ul class="across__cities" data-i18n="net.cities"><li class="hot">Yangon</li><li>Mandalay</li><li>Naypyitaw</li><li>Bago</li><li class="hot">Mawlamyine</li><li class="hot">Hpa-An</li><li class="hot">Myaing Kalay</li><li class="hot">Meiktila</li><li class="hot">Yamethin</li><li class="hot">Pyin Oo Lwin</li><li>Taunggyi</li><li>Kyaukse</li><li>Taungoo</li><li>Hinthada</li><li>Nyaunglebin</li><li>Shwebo</li><li>Lashio</li><li>Muse</li><li>Chauk</li><li>Salin</li><li>Yatsauk</li></ul>
+      </div>
+
       <div class="gallery">
         <figure class="photo photo--wide"><img src="assets/img/tawwin-1.jpg" alt="Cheesy Bites main outlet entrance at Taw Win Center" loading="lazy" /><figcaption data-i18n="cap.main">⭐ Main outlet · Taw Win Center</figcaption></figure>
         <figure class="photo"><img src="assets/img/tawwin-4.jpg" alt="Seating area inside the Taw Win Center outlet" loading="lazy" /><figcaption data-i18n="cap.dine">Taw Win Center · dine-in</figcaption></figure>
@@ -306,6 +315,9 @@
         <figure class="photo"><img src="assets/img/outlet-pinlon.jpg" alt="PinLon Hills outlet" loading="lazy" /><figcaption>PinLon Hills</figcaption></figure>
         <figure class="photo"><img src="assets/img/outlet-franchise-1.jpg" alt="Franchise outlet" loading="lazy" /><figcaption data-i18n="cap.f1">Franchise outlet</figcaption></figure>
         <figure class="photo"><img src="assets/img/outlet-franchise-2.jpg" alt="Franchise outlet kiosk" loading="lazy" /><figcaption data-i18n="cap.f2">Franchise kiosk</figcaption></figure>
+        <figure class="photo"><img src="assets/img/franchise-shop-b.jpg" alt="Cheesy Bites franchise shopfront with lit sign" loading="lazy" /><figcaption data-i18n="cap.f4">Franchise shop</figcaption></figure>
+        <figure class="photo"><img src="assets/img/franchise-shop-c.jpg" alt="Cheesy Bites franchise outlet with menu banners" loading="lazy" /><figcaption data-i18n="cap.f5">Franchise outlet</figcaption></figure>
+        <figure class="photo"><img src="assets/img/franchise-shop-a.jpg" alt="Cheesy Bites franchise counter" loading="lazy" /><figcaption data-i18n="cap.f6">Franchise counter</figcaption></figure>
         <figure class="photo"><img src="assets/img/outlet-franchise-4.jpg" alt="Cheesy Bites shopfront" loading="lazy" /><figcaption data-i18n="cap.f3">Franchise shopfront</figcaption></figure>
       </div>
     </div>
@@ -322,7 +334,7 @@
           <h2 class="section__title section__title--left section__title--dark" data-i18n="fr.title">Dream of your own shop? <span>Start today.</span></h2>
           <p class="lead" data-i18n="fr.lead">Want your own food business but don't know where to start? With Cheesy Bites you don't start alone. We help you from opening day to running the shop, with products, training and promotion.</p>
           <ul class="fr-proof">
-            <li><strong>58+</strong><span data-i18n="fr.proof1">franchise outlets</span></li>
+            <li><strong>63</strong><span data-i18n="fr.proof1">outlets open</span></li>
             <li><strong>58K+</strong><span data-i18n="fr.proof2">Facebook fans</span></li>
             <li><strong>~3</strong><span data-i18n="fr.proof3">minutes to fry</span></li>
           </ul>
@@ -553,7 +565,7 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=10"></script>
-  <script src="script.js?v=10"></script>
+  <script src="i18n.js?v=11"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>

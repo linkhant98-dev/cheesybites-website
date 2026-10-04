@@ -225,6 +225,14 @@ a { color: inherit; }
 .network__stat { background: var(--yellow); border: 3px solid var(--black); border-radius: var(--radius); padding: 22px; text-align: center; box-shadow: 6px 6px 0 var(--black); }
 .network__stat strong { display: block; font-family: var(--font-display); font-size: 3.2rem; line-height: 1; }
 .network__stat span { font-weight: 600; }
+.network__stat small { display: block; font-size: .75rem; font-weight: 600; opacity: .7; margin-top: 2px; }
+.across { display: grid; grid-template-columns: 1fr 1.4fr; gap: 36px; align-items: center; margin: 10px 0 40px; background: var(--white); border: 3px solid var(--black); border-radius: 28px; padding: 30px; box-shadow: 8px 8px 0 var(--black); }
+.across__legend { display: flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600; margin-top: 12px; }
+.across__legend .dot, .across__cities li.hot::before { width: 10px; height: 10px; border-radius: 50%; background: #e4572e; display: inline-block; flex: none; }
+.across__cities { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.across__cities li { display: inline-flex; align-items: center; gap: 6px; background: var(--cream); border: 2px solid var(--black); border-radius: 999px; padding: 5px 12px; font-size: .88rem; font-weight: 600; }
+.across__cities li.hot { background: var(--yellow); }
+.across__cities li.hot::before { content: ''; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
 .gallery img { cursor: zoom-in; }
 .photo--wide { grid-column: span 2; }
@@ -389,6 +397,7 @@ html[lang="my"] .marquee__track { font-family: 'Noto Sans Myanmar', var(--font-b
 @media (max-width: 900px) {
   .fr-hero, .fr-form { grid-template-columns: 1fr; gap: 30px; }
   .fr-benefits { grid-template-columns: 1fr 1fr; }
+  .across { grid-template-columns: 1fr; padding: 22px; }
   .menu-boards { grid-template-columns: 1fr 1fr; }
   .pk-cards { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
   .pk-card--best { transform: none; order: -1; }
