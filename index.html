@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co mailto:; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.goatcounter.com; connect-src https://formsubmit.co https://*.goatcounter.com; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co mailto:; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Cheesy Bites | Food For Everyone</title>
   <meta name="description" content="Myanmar snack brand since 2020. Cheese sticks, corndogs, burgers and fries at 63 outlets in 21+ cities, plus Makro wholesale packs and franchise opportunities." />
@@ -31,7 +31,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://linkhant98-dev.github.io/cheesybites-website/#org",
+      "name": "Cheesy Bites",
+      "alternateName": "Cheesy Bites Myanmar",
+      "url": "https://linkhant98-dev.github.io/cheesybites-website/",
+      "logo": "https://linkhant98-dev.github.io/cheesybites-website/assets/img/logo.png",
+      "image": "https://linkhant98-dev.github.io/cheesybites-website/assets/img/og-image.jpg",
+      "foundingDate": "2020",
+      "slogan": "Food For Everyone",
+      "email": "cheesy.bites11@gmail.com",
+      "sameAs": [
+        "https://www.facebook.com/cheesybitesygn"
+      ],
+      "description": "Myanmar snack brand selling cheese sticks, corndogs, burgers and fries at outlets, supermarkets, Makro wholesale and franchise locations."
+    },
+    {
+      "@type": "FastFoodRestaurant",
+      "@id": "https://linkhant98-dev.github.io/cheesybites-website/#taw-win",
+      "name": "Cheesy Bites – Taw Win Center (Main Outlet)",
+      "parentOrganization": {
+        "@id": "https://linkhant98-dev.github.io/cheesybites-website/#org"
+      },
+      "url": "https://linkhant98-dev.github.io/cheesybites-website/",
+      "image": [
+        "https://linkhant98-dev.github.io/cheesybites-website/assets/img/tawwin-1.jpg",
+        "https://linkhant98-dev.github.io/cheesybites-website/assets/img/tawwin-3.jpg"
+      ],
+      "servesCuisine": [
+        "Fast food",
+        "Snacks"
+      ],
+      "email": "cheesy.bites11@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No.45, Pyay Road, B-19/20/22, Taw Win Center",
+        "addressLocality": "Dagon Township",
+        "addressRegion": "Yangon Region",
+        "postalCode": "11111",
+        "addressCountry": "MM"
+      },
+      "hasMap": "https://maps.google.com/?q=Taw+Win+Center+No.45+Pyay+Road+Dagon+Yangon"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="style.css?v=23" />
 </head>
 <body>
 
@@ -77,8 +127,8 @@
         </a>
         <ul class="hero__stats">
           <li><strong data-count="2020" data-start="2000">2000</strong><span data-i18n="stat.founded">Founded</span></li>
-          <li><strong data-count="63">0</strong><span data-i18n="stat.outlets">Outlets open</span></li>
-          <li><strong><span data-count="21">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></li>
+          <li><strong data-count="63" data-stat="outlets">0</strong><span data-i18n="stat.outlets">Outlets open</span></li>
+          <li><strong><span data-count="21" data-stat="cities">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></li>
         </ul>
       </div>
 
@@ -376,8 +426,8 @@
     <div class="container">
       <h2 class="section__title" data-i18n="out.title">Our <span>Outlets</span></h2>
       <div class="network">
-        <div class="network__stat"><strong data-count="63">0</strong><span data-i18n="stat.outlets">Outlets open</span><small data-i18n="stat.asof">as of 4 Oct 2026</small></div>
-        <div class="network__stat"><strong><span data-count="21">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></div>
+        <div class="network__stat"><strong data-count="63" data-stat="outlets">0</strong><span data-i18n="stat.outlets">Outlets open</span><small data-asof>as of 4 Oct 2026</small></div>
+        <div class="network__stat"><strong><span data-count="21" data-stat="cities">0</span>+</strong><span data-i18n="stat.cities">Cities in Myanmar</span></div>
         <div class="network__stat"><strong>🇲🇲</strong><span data-i18n="stat.coverage">Wholesale coverage across Myanmar</span></div>
       </div>
       <div class="across">
@@ -386,7 +436,7 @@
           <p data-i18n="net.body">From Yangon to Mandalay, Mawlamyine to Lashio, Cheesy Bites outlets are open in towns all over the country, and the list keeps growing.</p>
           <p class="across__legend"><span class="dot"></span> <span data-i18n="net.legend">Recently opened franchise outlets</span></p>
         </div>
-        <ul class="across__cities" data-i18n="net.cities"><li class="hot">Yangon</li><li>Mandalay</li><li>Naypyitaw</li><li>Bago</li><li class="hot">Mawlamyine</li><li class="hot">Hpa-An</li><li class="hot">Myaing Kalay</li><li class="hot">Meiktila</li><li class="hot">Yamethin</li><li class="hot">Pyin Oo Lwin</li><li>Taunggyi</li><li>Kyaukse</li><li>Taungoo</li><li>Hinthada</li><li>Nyaunglebin</li><li>Shwebo</li><li>Lashio</li><li>Muse</li><li>Chauk</li><li>Salin</li><li>Yatsauk</li></ul>
+        <ul class="across__cities" id="cityList"><!-- filled from data.js --></ul>
       </div>
 
       <div class="gallery">
@@ -416,13 +466,14 @@
           <h2 class="section__title section__title--left section__title--dark" data-i18n="fr.title">Dream of your own shop? <span>Start today.</span></h2>
           <p class="lead" data-i18n="fr.lead">Want your own food business but don't know where to start? With Cheesy Bites you don't start alone. We help you from opening day to running the shop, with products, training and promotion.</p>
           <ul class="fr-proof">
-            <li><strong>63</strong><span data-i18n="fr.proof1">outlets open</span></li>
+            <li><strong data-stat-text="outlets">63</strong><span data-i18n="fr.proof1">outlets open</span></li>
             <li><strong>58K+</strong><span data-i18n="fr.proof2">Facebook fans</span></li>
             <li><strong>~3</strong><span data-i18n="fr.proof3">minutes to fry</span></li>
           </ul>
           <div class="hero__cta">
             <a href="#franchiseForm" class="btn btn--dark" data-i18n="fr.cta1">Send an Enquiry</a>
             <a href="https://m.me/cheesybitesygn" class="btn btn--ghost" target="_blank" rel="noopener noreferrer" data-i18n="fr.cta2">Ask on Messenger</a>
+            <a href="assets/brochure/cheesy-bites-franchise-en.pdf" class="btn btn--ghost-dark brochure-link" id="brochureLink" download data-i18n="fr.cta3">📄 Download brochure (PDF)</a>
           </div>
         </div>
         <figure class="photo fr-hero__photo">
@@ -593,6 +644,43 @@
         <li><span>4</span><h4 data-i18n="fr.s4h">Open &amp; grow</h4><p data-i18n="fr.s4p">Start selling with regular product supply and marketing support from Cheesy Bites.</p></li>
       </ol>
 
+      <!-- FAQ -->
+      <h3 class="fr-subtitle" data-i18n="faq.title">Frequently asked questions</h3>
+      <div class="faq">
+        <details class="faq__item" open>
+          <summary data-i18n="faq.q1">How much does a Cheesy Bites franchise cost?</summary>
+          <p data-i18n="faq.a1">There are three packages to match what you already have: Package 2 (from 13xxxxx Ks), Package 1 (18xxxxx Ks) and the all-in-one Full Package (32xxxxx Ks). Send an enquiry or message us for the exact price.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q2">What's included in the package?</summary>
+          <p data-i18n="faq.a2">Every package includes the 3-year brand licence, a full branding kit (stickers, vinyl, menu stand, corndog standee, 2 staff uniforms), opening food stock, launch advertising, and training with ongoing support. The Full Package also includes the branded food cart and kitchen equipment.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q3">Do I need cooking experience or a chef?</summary>
+          <p data-i18n="faq.a3">No. Our products come frozen and ready to fry, and take about 3 minutes to cook. We train you to cook, serve and sell, so you can run the shop yourself without hiring a chef.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q4">Where do I get my supplies?</summary>
+          <p data-i18n="faq.a4">Cheesy Bites supplies ready-to-fry frozen products to your shop regularly. You buy only what you sell, so there's less waste and you're protected from daily changes in raw material prices.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q5">Can I open in a shop instead of a food cart?</summary>
+          <p data-i18n="faq.a5">Yes. Many partners open in a shop room, kiosk or mall counter. If you don't use the food cart, you'll need to build one cash counter (4 ft × 2 ft) in the Cheesy Bites colours and design.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q6">How long does the franchise last?</summary>
+          <p data-i18n="faq.a6">The franchise fee covers the right to use the Cheesy Bites name and brand for 3 years. Contact us for renewal details.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q7">Can I open in my town?</summary>
+          <p data-i18n="faq.a7">Cheesy Bites already has outlets in 21+ cities across Myanmar, from Yangon and Mandalay to Lashio and Mawlamyine. Tell us your town and location in the enquiry form, and we'll let you know if it's available.</p>
+        </details>
+        <details class="faq__item">
+          <summary data-i18n="faq.q8">Do you help with marketing?</summary>
+          <p data-i18n="faq.a8">Yes. Every package includes launch advertising designed for your shop and promoted to customers near you, plus free use of our design files and product photos for your own posts.</p>
+        </details>
+      </div>
+
       <!-- Enquiry form -->
       <div class="fr-form">
         <div class="fr-form__text">
@@ -688,7 +776,8 @@
     <img alt="" />
   </div>
 
-  <script src="i18n.js?v=20"></script>
-  <script src="script.js?v=20"></script>
+  <script src="data.js?v=23"></script>
+  <script src="i18n.js?v=23"></script>
+  <script src="script.js?v=23"></script>
 </body>
 </html>

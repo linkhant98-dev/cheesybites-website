@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Cheesy Bites Franchise Brochure</title>
+<!-- Source for the downloadable franchise brochure PDFs.
+     Rendered with:  brochure/build.sh  (needs Google Chrome)
+     Text comes from ../i18n.js and numbers from ../data.js -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Anton&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --y: #ffc61a; --yd: #f5a800; --cream: #fff8e1; --k: #141414; --brown: #b5651d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: 'Poppins', sans-serif; color: var(--k); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html[lang="my"] body { font-family: 'Noto Sans Myanmar', 'Poppins', sans-serif; font-size: 9.6pt; line-height: 1.75; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Header band */
+  .band { background: var(--y); border-bottom: 3px solid var(--k); padding: 10mm 14mm 8mm; display: flex; align-items: center; justify-content: space-between; }
+  .band img { height: 17mm; }
+  .band .tag { font-family: 'Lobster', cursive; font-size: 15pt; }
+  .band .pill { background: var(--k); color: var(--y); border-radius: 99px; padding: 2mm 5mm; font-weight: 700; font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; }
+  html[lang="my"] .band .pill { letter-spacing: 0; text-transform: none; }
+
+  .body { padding: 9mm 14mm 0; flex: 1; display: flex; flex-direction: column; gap: 6mm; }
+  h1 { font-family: 'Anton', sans-serif; font-size: 30pt; line-height: 1.02; text-transform: uppercase; }
+  h1 span { font-family: 'Lobster', cursive; text-transform: none; color: var(--yd); font-weight: 400; }
+  h2 { font-family: 'Anton', sans-serif; font-size: 16pt; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 3mm; }
+  html[lang="my"] h1, html[lang="my"] h2 { font-family: 'Noto Sans Myanmar', sans-serif; font-weight: 700; text-transform: none; letter-spacing: 0; }
+  html[lang="my"] h1 { font-size: 21pt; line-height: 1.45; }
+  html[lang="my"] h1 span { font-family: 'Noto Sans Myanmar', sans-serif; font-weight: 700; }
+  html[lang="my"] h2 { font-size: 13pt; line-height: 1.5; }
+  .lead { font-size: 11pt; font-weight: 500; }
+  html[lang="my"] .lead { font-size: 10pt; }
+
+  .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 7mm; align-items: center; }
+  .hero img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 3px solid var(--k); border-radius: 5mm; box-shadow: 2mm 2mm 0 var(--k); }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 4mm; }
+  .stat { background: var(--cream); border: 2px solid var(--k); border-radius: 3mm; padding: 2.5mm; text-align: center; }
+  .stat b { display: block; font-family: 'Anton', sans-serif; font-size: 18pt; line-height: 1.1; }
+  .stat span { font-size: 7.5pt; font-weight: 600; line-height: 1.3; display: block; }
+
+  .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .benefit { border: 2px solid var(--k); border-radius: 4mm; padding: 4mm; background: #fff; }
+  .benefit i { font-style: normal; font-size: 15pt; display: inline-grid; place-items: center; width: 10mm; height: 10mm; background: var(--y); border: 2px solid var(--k); border-radius: 50%; margin-bottom: 2mm; }
+  .benefit h3 { font-size: 9.5pt; line-height: 1.3; margin-bottom: 1.5mm; }
+  .benefit p { font-size: 8pt; line-height: 1.45; }
+  html[lang="my"] .benefit p { font-size: 7.6pt; line-height: 1.65; }
+
+  .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .pk { border: 2px solid var(--k); border-radius: 4mm; padding: 4mm; background: #fff; position: relative; }
+  .pk.best { background: var(--k); color: #fff; }
+  .pk .name { font-weight: 700; font-size: 8pt; text-transform: uppercase; letter-spacing: .06em; color: var(--brown); }
+  .pk.best .name { color: var(--y); }
+  .pk .price { font-family: 'Anton', sans-serif; font-size: 21pt; line-height: 1.15; }
+  .pk .price small { font-family: 'Poppins', sans-serif; font-size: 8pt; opacity: .7; }
+  .pk p { font-size: 8pt; line-height: 1.45; }
+  .pk ul { list-style: none; margin-top: 2mm; font-size: 8pt; font-weight: 600; }
+  .pk li::before { content: '✓ '; color: #1b8a2e; }
+  .pk.best li::before { color: var(--y); }
+  .pk li.no { opacity: .55; }
+  .pk li.no::before { content: '✕ '; color: #d62828; }
+  .ribbon { position: absolute; top: -3mm; right: 3mm; background: var(--y); color: var(--k); border: 2px solid var(--k); border-radius: 99px; padding: .5mm 3mm; font-size: 7pt; font-weight: 700; text-transform: uppercase; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8pt; border: 2px solid var(--k); border-radius: 3mm; overflow: hidden; }
+  th, td { padding: 1.8mm 2.5mm; border-bottom: 1px solid #ddd; text-align: center; vertical-align: middle; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: var(--y); font-size: 7.5pt; text-transform: uppercase; letter-spacing: .05em; }
+  td.v { font-family: 'Anton', sans-serif; font-size: 10pt; white-space: nowrap; }
+  td.y { color: #1b8a2e; font-weight: 700; }
+  td.n { color: #bbb; }
+  td b { display: block; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .step { background: var(--k); color: #fff; border-radius: 3.5mm; padding: 4mm 3mm 3mm; position: relative; }
+  .step b { position: absolute; top: -3mm; left: 3mm; width: 7mm; height: 7mm; border-radius: 50%; background: var(--y); color: var(--k); border: 2px solid var(--k); display: grid; place-items: center; font-family: 'Anton', sans-serif; font-size: 10pt; }
+  .step h3 { color: var(--y); font-size: 8.5pt; line-height: 1.3; margin: 1mm 0; }
+  .step p { font-size: 7.5pt; line-height: 1.45; opacity: .9; }
+
+  .note { border: 2px dashed var(--k); border-radius: 3mm; padding: 3mm 4mm; background: var(--cream); font-size: 8pt; }
+  .note b { display: block; }
+
+  .contact { margin-top: auto; background: var(--y); border-top: 3px solid var(--k); padding: 7mm 14mm; display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; align-items: center; }
+  .contact h2 { margin-bottom: 1mm; }
+  .contact .cta { font-size: 9pt; }
+  .contact ul { list-style: none; font-size: 8.5pt; font-weight: 600; display: grid; gap: 1.5mm; }
+  .contact li span { display: inline-block; width: 6mm; }
+  .fineprint { font-size: 7pt; opacity: .7; margin-top: 2mm; }
+
+  .sell { display: grid; grid-template-columns: 48mm 1fr; gap: 7mm; align-items: center; }
+  .sell img { width: 100%; border: 3px solid var(--k); border-radius: 5mm; box-shadow: 2mm 2mm 0 var(--k); }
+  .contact--big { padding: 8mm 14mm; }
+  .contact .addr { margin-top: 3mm; font-weight: 600; }
+  .contact ul { word-break: break-all; }
+
+  .partners { display: flex; align-items: center; gap: 4mm; flex-wrap: wrap; border: 2px solid var(--k); border-radius: 4mm; padding: 3mm 4mm; background: var(--cream); }
+  .partners p { font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em; }
+  html[lang="my"] .partners p { text-transform: none; letter-spacing: 0; }
+  .partners img { height: 10mm; border-radius: 2mm; border: 1.5px solid var(--k); }
+  .partners img.w { background: #fff; padding: 1mm 2mm; }
+  .partners span { font-size: 8pt; font-weight: 600; opacity: .75; }
+  .cities { list-style: none; display: flex; flex-wrap: wrap; gap: 2mm; }
+  .cities li { border: 1.5px solid var(--k); border-radius: 99px; padding: .6mm 3mm; font-size: 8pt; font-weight: 600; background: var(--cream); }
+  .cities li.hot { background: var(--y); }
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .quotes figure { border: 2px solid var(--k); border-radius: 4mm; padding: 4mm; background: #fff; display: flex; flex-direction: column; gap: 2mm; }
+  .quotes figure:first-child { background: var(--k); color: #fff; }
+  .quotes blockquote { font-size: 8pt; line-height: 1.5; flex: 1; }
+  html[lang="my"] .quotes blockquote { font-size: 7.6pt; line-height: 1.65; }
+  .page:last-child .body { gap: 5mm; padding-top: 7mm; }
+  .quotes blockquote::before { content: '“'; font-family: 'Anton', sans-serif; color: var(--yd); font-size: 18pt; line-height: 0; vertical-align: -6pt; margin-right: 1mm; }
+  .quotes figcaption { font-size: 8pt; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+  <div class="band">
+    <img src="../assets/img/logo.png" alt="Cheesy Bites" />
+    <span class="pill" data-k="fr.eyebrow">Cheesy Bites Franchise</span>
+  </div>
+  <div class="body">
+    <div class="hero">
+      <div>
+        <h1 data-k="fr.title">Dream of your own shop? <span>Start today.</span></h1>
+        <p class="lead" style="margin-top:4mm" data-k="fr.lead">Want your own food business but don't know where to start? With Cheesy Bites you don't start alone. We help you from opening day to running the shop, with products, training and promotion.</p>
+        <div class="stats">
+          <div class="stat"><b data-stat="outlets">63</b><span data-k="stat.outlets">Outlets open</span></div>
+          <div class="stat"><b><span data-stat="cities" style="font-size:inherit;display:inline;font-weight:inherit">21</span>+</b><span data-k="stat.cities">Cities in Myanmar</span></div>
+          <div class="stat"><b>2020</b><span data-k="stat.founded">Founded</span></div>
+          <div class="stat"><b>~3</b><span data-k="fr.proof3">minutes to fry</span></div>
+        </div>
+      </div>
+      <img src="../assets/img/fb/franchise.jpg" alt="" />
+    </div>
+
+    <div>
+      <h2 data-k="fr.why">Why franchisees choose Cheesy Bites</h2>
+      <div class="benefits">
+        <div class="benefit"><i>👩‍🍳</i><h3 data-k="fr.b1h">No chef or extra staff needed</h3><p data-k="fr.b1p">Staff are hard to find these days. Our frozen products are ready to fry, so you can cook and sell them yourself in about 3 minutes.</p></div>
+        <div class="benefit"><i>💸</i><h3 data-k="fr.b2h">Less waste, steadier costs</h3><p data-k="fr.b2p">Raw material prices change every day. Making snacks from scratch means waste and risk. We supply ready products, so you buy only what you sell.</p></div>
+        <div class="benefit"><i>⭐</i><h3 data-k="fr.b3h">A brand people already know</h3><p data-k="fr.b3p">Customers already know and love our corndogs, long potato and chicken popcorn, so you start with a proven, fast-selling menu.</p></div>
+        <div class="benefit"><i>🤝</i><h3 data-k="fr.b4h">Support at every step</h3><p data-k="fr.b4p">From setting up your shop to daily operations, product supply, training and sales promotion, we work with you side by side.</p></div>
+        <div class="benefit"><i>🏪</i><h3 data-k="fr.b5h">Fits any space</h3><p data-k="fr.b5p">Run it as a kiosk, a mall counter or a full shopfront. You choose the format that fits your location and budget.</p></div>
+        <div class="benefit"><i>📈</i><h3 data-k="fr.b6h">Easy income</h3><p data-k="fr.b6p">Quick to cook, quick to sell. It's a simple, low-stress way to earn from a food business without years of experience.</p></div>
+      </div>
+    </div>
+
+    <div class="partners">
+      <p data-k="hero.instore">Now in store at</p>
+      <img src="../assets/img/partners/makro.png" alt="Makro" class="w" />
+      <img src="../assets/img/partners/ocean.jpg" alt="Ocean" />
+      <img src="../assets/img/partners/marketplace.jpg" alt="Marketplace by City Mart" />
+      <span data-k="br.partnersMore">+ City Mart, Capital, foodpanda</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+  <div class="band">
+    <img src="../assets/img/logo.png" alt="Cheesy Bites" />
+    <span class="tag">Food For Everyone</span>
+  </div>
+  <div class="body">
+    <div>
+      <h2 data-k="pk.title">Franchise packages</h2>
+      <div class="packages">
+        <div class="pk"><p class="name" data-k="pk.p2name">Package 2 · Starter</p><p class="price">13xxxxx <small>Ks</small></p><p data-k="pk.p2desc">For owners who already have a cart or counter and their own kitchen equipment.</p><ul data-k="pk.p2list"><li class="no">No food cart</li><li class="no">No kitchen equipment</li><li>Everything else included</li></ul></div>
+        <div class="pk"><p class="name" data-k="pk.p1name">Package 1</p><p class="price">18xxxxx <small>Ks</small></p><p data-k="pk.p1desc">Comes with kitchen equipment. Build a cart in the same Cheesy Bites design in your own township.</p><ul data-k="pk.p1list"><li class="no">No food cart</li><li>Kitchen equipment included</li><li>Everything else included</li></ul></div>
+        <div class="pk best"><span class="ribbon" data-k="pk.best">All-in-one</span><p class="name" data-k="pk.fullname">Full Package</p><p class="price">32xxxxx <small>Ks</small></p><p data-k="pk.fulldesc">Everything you need to open: branded food cart, kitchen equipment and all items below.</p><ul data-k="pk.fulllist"><li>Branded food cart</li><li>Kitchen equipment</li><li>Everything else included</li></ul></div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th data-k="pk.tableTitle">What's included</th><th data-k="pk.colValue">Value</th><th>Full</th><th>Pkg 1</th><th>Pkg 2</th></tr></thead>
+      <tbody>
+        <tr><td><b data-k="pk.i1h">Branding kit</b><span data-k="pk.i1p">Stickers &amp; vinyl for your cart or shop, counter sticker, in-store vinyl, menu stand &amp; menu cards, corndog standee and 2 staff uniforms.</span></td><td class="v">45xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td><b data-k="pk.i2h">Branded food cart</b><span data-k="pk.i2p">4 ft × 3 ft cart, 7 ft high. Weather-resistant build, fully wrapped in premium Cheesy Bites vinyl.</span></td><td class="v">13xxxxx</td><td class="y">✓</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td><b data-k="pk.i3h">Kitchen equipment</b><span data-k="pk.i3p">Double-burner gas stove with gas cylinder, plus oil strainer, scissors, tongs, cutting board, sauce bottles and more.</span></td><td class="v">60xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+        <tr><td><b data-k="pk.i4h">Franchise fee (3 years)</b><span data-k="pk.i4p">The right to use the Cheesy Bites name and brand for 3 years.</span></td><td class="v">50xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td><b data-k="pk.i5h">Opening food stock</b><span data-k="pk.i5p">Your first stock of burger, fries and chicken menu items, plus packaging, mayonnaise and sauces, all ready for opening day.</span></td><td class="v">20xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td><b data-k="pk.i6h">Launch advertising</b><span data-k="pk.i6p">Custom ad designs for your shop, promoted to customers near your location.</span></td><td class="v">10xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td><b data-k="pk.i7h">Training &amp; ongoing service</b><span data-k="pk.i7p">Guidance on daily operations, recipe training to grow sales, and free use of all our design files and product photos.</span></td><td class="v">10xxxx</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><b data-k="pk.noteTitle">Opening in a shop instead of a cart?</b><span data-k="pk.noteBody">A cash counter is not included in any package. If you open in a shop room instead of the food cart, please build one cash counter (4 ft × 2 ft) in the Cheesy Bites colours and design.</span></div>
+
+    <p class="fineprint" data-k="pk.disclaimer">Prices are shown in part. Send an enquiry or message us for the exact package price and full details.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="page">
+  <div class="band">
+    <img src="../assets/img/logo.png" alt="Cheesy Bites" />
+    <span class="pill" data-k="fr.eyebrow">Cheesy Bites Franchise</span>
+  </div>
+  <div class="body">
+    <div class="sell">
+      <img src="../assets/img/fb/readytofry.jpg" alt="" />
+      <div>
+      <h2 data-k="fr.sellTitle">What you'll sell</h2>
+      <p data-k="fr.sellBody">Ready-to-fry frozen products, delivered to your shop. Keep them frozen, fry for a few minutes, and serve.</p>
+      <p style="font-weight:600;margin-top:1.5mm" data-k="br.sellList">Cheese sticks &amp; corndogs · Signature long potato · Chicken popcorn · Burgers &amp; combo sets</p>
+      </div>
+    </div>
+    <div>
+      <h2 data-k="fr.howTitle">How it works</h2>
+      <div class="steps">
+        <div class="step"><b>1</b><h3 data-k="fr.s1h">Send an enquiry</h3><p data-k="br.s1p">Use the form on our website or message us on Facebook Messenger.</p></div>
+        <div class="step"><b>2</b><h3 data-k="fr.s2h">Talk with our team</h3><p data-k="fr.s2p">We go through your location, shop format and the details of the franchise package.</p></div>
+        <div class="step"><b>3</b><h3 data-k="fr.s3h">Set up &amp; training</h3><p data-k="fr.s3p">We help set up your shop and train you to cook, serve and sell.</p></div>
+        <div class="step"><b>4</b><h3 data-k="fr.s4h">Open &amp; grow</h3><p data-k="fr.s4p">Start selling with regular product supply and marketing support from Cheesy Bites.</p></div>
+      </div>
+    </div>
+    <div>
+      <h2 data-k="net.title">Cheesy Bites across Myanmar</h2>
+      <ul class="cities" id="cityList"></ul>
+    </div>
+    <div>
+      <h2 data-k="tm.title">What our partners say</h2>
+      <div class="quotes">
+        <figure><blockquote data-k="tm.q1">Since opening, we haven't had a single complaint, and we're one of the top stock buyers. Once the economy recovers, it will only get better.</blockquote><figcaption>📍 <span data-k="tm.t1">Meiktila</span> · <span data-k="tm.franchise">Franchise outlet</span></figcaption></figure>
+        <figure><blockquote data-k="tm.q2">Within months of opening we were one of the top stock buyers. For 3–4 months the roads were closed and transport cost 2–3 times more, but our customers kept supporting us. We're still selling well, even in tough times.</blockquote><figcaption>📍 <span data-k="tm.t2">Lashio</span> · <span data-k="tm.franchise">Franchise outlet</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="contact contact--big">
+    <div>
+      <h2 data-k="fr.formIntroTitle">Take your first step today</h2>
+      <p class="cta" data-k="fr.formIntro">Don't let your dream stay a dream. Leave your details and our team will contact you with the full franchise information.</p>
+      <p class="cta addr" data-k="br.address">Main outlet: No.45, Pyay Road, B-19/20/22, Taw Win Center, Dagon Township, Yangon</p>
+    </div>
+    <ul>
+      <li><span>💬</span>m.me/cheesybitesygn</li>
+      <li><span>✉️</span>cheesy.bites11@gmail.com</li>
+      <li><span>🌐</span>linkhant98-dev.github.io/cheesybites-website</li>
+    </ul>
+  </div>
+</section>
+
+<script src="../data.js"></script>
+<script src="../i18n.js"></script>
+<script>
+  // Brochure-only Myanmar text (everything else is reused from i18n.js)
+  const BR_MY = {
+    'br.sellList': 'ချိစ်ချောင်းနှင့် ကော်န်ဒေါ့ · Signature အာလူးချောင်းရှည် · ချစ်ကင် ပေါ့ပ်ကော်န် · ဘာဂါနှင့် Combo Set များ',
+    'br.s1p': 'ကျွန်ုပ်တို့ ဝဘ်ဆိုက်ရှိ ဖောင်ကို ဖြည့်ပါ သို့မဟုတ် Facebook Messenger မှ စာပို့ပါ။',
+    'br.contactTitle': 'ဆက်သွယ်ရန်',
+    'br.partnersMore': '+ City Mart၊ Capital၊ foodpanda',
+    'br.address': 'ပင်မဆိုင်: အမှတ် ၄၅၊ ပြည်လမ်း၊ B-19/20/22၊ တော်ဝင်စင်တာ၊ ဒဂုံမြို့နယ်၊ ရန်ကုန်',
+  };
+  const lang = new URLSearchParams(location.search).get('lang') === 'my' ? 'my' : 'en';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-stat]').forEach(el => { el.textContent = SITE_STATS[el.dataset.stat]; });
+  document.getElementById('cityList').innerHTML = CITIES.map(c => `<li${c.hot ? ' class="hot"' : ''}>${lang === 'my' ? c.my : c.en}</li>`).join('');
+  if (lang === 'my') {
+    document.querySelectorAll('[data-k]').forEach(el => {
+      const t = BR_MY[el.dataset.k] ?? I18N_MY[el.dataset.k];
+      if (t) el.innerHTML = t;
+    });
+  }
+</script>
+</body>
+</html>

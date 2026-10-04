@@ -28,12 +28,40 @@ Then open http://localhost:8080 in your browser.
 |------|------------|
 | `index.html` | Page content: About Us, What We Are / Do, Products, Partners, Outlets, Franchise, Contact |
 | `style.css` | Brand colours, layout, mobile styles |
-| `script.js` | Product list (edit `PRODUCTS` to add or change items), filters, franchise form, animations |
+| `data.js` | **Easy-edit file:** outlet numbers, city list, products, full menu, enquiry emails, statistics code |
+| `script.js` | Page logic: filters, franchise form, language switch, animations |
 | `assets/img/` | Logo and photos from the company profile |
 
-## Editing products
+## Editing content (data.js)
 
-Open `script.js` and edit the `PRODUCTS` list at the top. Each item has a category (`fresh`, `frozen`, `wholesale`), a photo from `assets/img/`, a name, a description, and where to buy it.
+Open `data.js`. Everything your team usually needs to change is there, with instructions at the top:
+
+- **`SITE_STATS`**: number of outlets, number of cities, and the date of the count
+- **`CITIES`**: towns with outlets (`hot: true` highlights a recently opened franchise town)
+- **`PRODUCTS`**: product cards (category, photo, English and Myanmar text)
+- **`MENU`** / **`FLAVOURS`**: the full menu boards
+- **`ENQUIRY_TO`** / **`ENQUIRY_CC`**: who receives franchise enquiries
+- **`ANALYTICS`**: GoatCounter statistics code (empty = off)
+
+When the outlet count changes, also update the share-preview text in `index.html` (`og:description`).
+
+## Franchise brochure (PDF)
+
+The downloadable brochures are `assets/brochure/cheesy-bites-franchise-en.pdf` and `-my.pdf`. They're generated from `brochure/brochure.html`, which reuses the website text and the numbers in `data.js`. After changing content, rebuild them on a Mac with Google Chrome:
+
+```bash
+bash brochure/build.sh
+```
+
+## Visitor statistics
+
+1. Create a free account at https://www.goatcounter.com/signup (no cookies, no consent banner needed).
+2. Put the account code in `data.js` → `ANALYTICS.goatcounterCode`.
+3. Visits appear in your GoatCounter dashboard, plus these events: Messenger taps, email taps, directions, brochure downloads, enquiries sent and language switches.
+
+## Google Business Profile
+
+See [GOOGLE-BUSINESS-SETUP.md](GOOGLE-BUSINESS-SETUP.md) for step-by-step setup with ready-to-paste text in English and Myanmar.
 
 ## Languages (English / မြန်မာ)
 
