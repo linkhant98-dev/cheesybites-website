@@ -76,3 +76,20 @@ The **မြန်မာ / English** button in the top menu switches language, a
 The franchise form sends each enquiry by email to **cheesy.bites11@gmail.com**, with a copy to **linkhant98@gmail.com**. It uses the free [FormSubmit](https://formsubmit.co) service (settings are at the top of `script.js`).
 
 **One-time setup:** the first time someone submits the form, FormSubmit sends an activation email to cheesy.bites11@gmail.com. Click **Activate Form** in that email. After that, every enquiry arrives automatically. If sending fails, the form opens the visitor's email app addressed to both emails instead.
+
+## SEO (search engines)
+
+The site includes:
+- A keyword-focused title and description in English, with a separate Myanmar title and description.
+- A Myanmar version at `?lang=my`, linked to the English page with `hreflang` tags so Google can show the right language.
+- Structured data (WebSite, Organization, FastFoodRestaurant with the Google Business Profile, FAQPage).
+- `sitemap.xml`, share previews, and a no-JavaScript text fallback for the menu.
+
+**Get indexed on Google (one time, by the owner):**
+1. Go to https://search.google.com/search-console and click **Add property → URL prefix**.
+2. Enter `https://linkhant98-dev.github.io/cheesybites-website/`.
+3. Choose **HTML tag** verification and copy the `content="…"` code. Send it to your web developer, who adds it to `index.html` and publishes.
+4. Click **Verify**, then go to **Sitemaps** and submit `sitemap.xml`.
+5. Under **URL inspection**, test the home page and the `?lang=my` page and click **Request indexing**.
+
+When content changes (for example, the outlet count), update `<lastmod>` in `sitemap.xml`.

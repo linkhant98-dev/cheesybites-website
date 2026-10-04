@@ -78,9 +78,32 @@ $$('#navLinks a').forEach(a => a.addEventListener('click', () => {
 const i18nEls = $$('[data-i18n]');
 i18nEls.forEach(el => { el._en = el.innerHTML; });
 
+// Page title & description per language (for Google and browser tabs)
+const PAGE_META = {
+  en: {
+    title: 'Cheesy Bites Myanmar | Cheese Corndogs, Burgers & Franchise in Yangon',
+    desc: "Myanmar's cheese corndog brand since 2020. Burgers, long potato and fried chicken at 63 outlets in 21+ cities, plus Makro wholesale and franchise.",
+  },
+  my: {
+    title: 'Cheesy Bites မြန်မာ | ချိစ်ချောင်း၊ ကော်န်ဒေါ့၊ ဘာဂါ နှင့် ဖရန်ချိုက်စ်',
+    desc: 'Cheesy Bites – ၂၀၂၀ ကတည်းက မြန်မာ့ ချိစ်ချောင်းနှင့် ကော်န်ဒေါ့ အမှတ်တံဆိပ်။ မြို့ ၂၁ မြို့ကျော်ရှိ ဆိုင်ခွဲ ၆၃ ဆိုင်တွင် ဘာဂါ၊ အာလူးချောင်းရှည်နှင့် ကြက်ကြော်။ Ocean နှင့် City Mart တွင် အေးခဲထုပ်များ၊ Makro တွင် လက်ကား၊ ဖရန်ချိုက်စ် အခွင့်အလမ်း။',
+  },
+};
+
 function setLang(next) {
   lang = next === 'my' ? 'my' : 'en';
   document.documentElement.lang = lang;
+  document.title = PAGE_META[lang].title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', PAGE_META[lang].desc);
+  // Keep the address shareable: ?lang=my for Myanmar, plain URL for English
+  try {
+    const url = new URL(location.href);
+    if (lang === 'my') url.searchParams.set('lang', 'my'); else url.searchParams.delete('lang');
+    history.replaceState(null, '', url);
+    const canon = document.querySelector('link[rel="canonical"]');
+    if (canon) canon.href = 'https://linkhant98-dev.github.io/cheesybites-website/' + (lang === 'my' ? '?lang=my' : '');
+  } catch {}
   i18nEls.forEach(el => {
     const t = lang === 'my' ? I18N_MY[el.dataset.i18n] : undefined;
     el.innerHTML = t ?? el._en;
@@ -305,6 +328,8 @@ document.addEventListener('mousemove', e => {
 
 // ===== Init =====
 $('#year').textContent = new Date().getFullYear();
+// Language: ?lang= in the link wins, then the visitor's last choice, then English
 let saved = 'en';
 try { saved = localStorage.getItem('cb-lang') || 'en'; } catch {}
-setLang(saved);
+const urlLang = new URLSearchParams(location.search).get('lang');
+setLang(urlLang === 'my' || urlLang === 'en' ? urlLang : saved);
