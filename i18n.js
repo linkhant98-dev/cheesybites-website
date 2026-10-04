@@ -273,6 +273,7 @@ const I18N_MY = {
   'ct.email': '✉️ အီးမေးလ်',
   'ct.dir': 'လမ်းညွှန် ကြည့်ရန်',
   'ct.msg': 'မက်ဆေ့ချ် ပို့ရန်',
+  'ct.google': '⭐ Google တွင် ကြည့်ရန်နှင့် Review ပေးရန်',
   'fab.label': 'Messenger မှ စကားပြောရန်',
   'footer.tag': 'Food For Everyone · ၂၀၂၀ ကတည်းက',
 };

@@ -37,6 +37,8 @@ a { color: inherit; }
 .btn--ghost { background: transparent; color: var(--black); }
 .btn--ghost-dark { background: var(--white); color: var(--black); }
 .btn--full { width: 100%; }
+.btn--google { background: var(--white); color: var(--black); border-color: var(--black); }
+.btn--google:hover { background: var(--cheese); }
 
 /* ===== Nav ===== */
 .nav { position: sticky; top: 0; z-index: 50; background: var(--yellow); border-bottom: 3px solid var(--black); }

@@ -244,6 +244,7 @@ document.addEventListener('click', e => {
   if (!a) return;
   if (a.href.includes('m.me/')) track('click-messenger', 'Messenger tap');
   else if (a.href.startsWith('mailto:')) track('click-email', 'Email tap');
+  else if (a.href.includes('share.google')) track('click-google-profile', 'Google profile');
   else if (a.href.includes('maps.google')) track('click-directions', 'Get directions');
   else if (a.href.endsWith('.pdf')) track('download-brochure', 'Brochure download');
 });
