@@ -15,7 +15,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; overflow-x: clip; }
 body { font-family: var(--font-body); background: var(--cream); color: var(--black); line-height: 1.6; overflow-x: hidden; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
@@ -367,6 +367,7 @@ a { color: inherit; }
 .shelf { margin-top: 50px; }
 .shelf__table { min-width: 0; }
 .shelf__table td { font-weight: 600; }
+.shelf__table td:not(:first-child), .shelf__table th:not(:first-child) { white-space: nowrap; }
 .shelf__table td:first-child, .shelf__table th:first-child { text-align: left; }
 .shelf__table td:nth-child(3) { color: #1b8a2e; }
 .shelf__table thead th:nth-child(3), .shelf__table td:nth-child(3) { background: transparent; }
@@ -479,6 +480,16 @@ html[lang="my"] .marquee__track { font-family: 'Noto Sans Myanmar', var(--font-b
   .fr-benefits { grid-template-columns: 1fr; }
   .tm-grid { grid-template-columns: 1fr; gap: 34px; }
   .lab__cards { grid-template-columns: 1fr; }
+  .pk-table:not(.shelf__table) { min-width: 0; }
+  .pk-table:not(.shelf__table) thead { display: none; }
+  .pk-table:not(.shelf__table) tbody tr { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(0,0,0,.1); padding: 14px 14px 12px; gap: 6px 0; }
+  .pk-table:not(.shelf__table) tbody th { grid-column: 1 / -1; padding: 0; border: 0; }
+  .pk-table:not(.shelf__table) .pk-price { grid-column: 1 / -1; text-align: left; padding: 4px 0 0 52px; border: 0; }
+  .pk-table:not(.shelf__table) td.yes, .pk-table:not(.shelf__table) td.no { border: 0; padding: 6px 0; background: transparent; font-size: 1rem; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .pk-table:not(.shelf__table) td.yes::before, .pk-table:not(.shelf__table) td.no::before { font-size: .68rem; font-weight: 700; color: var(--brown); text-transform: uppercase; letter-spacing: .06em; }
+  .pk-table:not(.shelf__table) td:nth-child(3)::before { content: 'Full'; }
+  .pk-table:not(.shelf__table) td:nth-child(4)::before { content: 'Pkg 1'; }
+  .pk-table:not(.shelf__table) td:nth-child(5)::before { content: 'Pkg 2'; }
   .menu-boards { grid-template-columns: 1fr; }
   .board--span { grid-column: auto; }
   .board--wide .board__items { grid-template-columns: 1fr; }
