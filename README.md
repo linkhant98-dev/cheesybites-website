@@ -73,9 +73,9 @@ The **မြန်မာ / English** button in the top menu switches language, a
 
 ## Franchise enquiry emails
 
-The franchise form sends each enquiry by email to **contact@cheesybites.com.mm**, with copies to **cheesy.bites11@gmail.com** and **linkhant98@gmail.com**. It uses the free [FormSubmit](https://formsubmit.co) service (addresses are set in `data.js`).
+The franchise form sends each enquiry by email to **linkhant98@gmail.com**, with copies to **contact@cheesybites.com.mm** and **cheesy.bites11@gmail.com**. It uses the free [FormSubmit](https://formsubmit.co) service (addresses are set in `data.js`).
 
-**One-time setup:** the first time someone submits the form, FormSubmit sends an activation email to contact@cheesybites.com.mm (company webmail: https://mx04.mtalk.net.mm/). Click **Activate Form** in that email. After that, every enquiry arrives automatically. If sending fails, the form opens the visitor's email app addressed to all three emails instead.
+**One-time setup:** the first time someone submits the form, FormSubmit sends an activation email to the main address in `data.js` (currently linkhant98@gmail.com). Click **Activate Form** in that email. After that, every enquiry arrives automatically. If sending fails, the form opens the visitor's email app addressed to all three emails instead.
 
 ## SEO (search engines)
 
