@@ -57,8 +57,10 @@ const CITIES = [
 
 // ===== Enquiry form emails =====
 // Franchise enquiries are emailed to both addresses via FormSubmit (formsubmit.co).
-const ENQUIRY_TO = 'cheesy.bites11@gmail.com';
-const ENQUIRY_CC = 'linkhant98@gmail.com';
+// ENQUIRY_TO receives each enquiry (and FormSubmit's one-time "Activate Form" email).
+// ENQUIRY_CC gets a copy; separate several addresses with commas.
+const ENQUIRY_TO = 'contact@cheesybites.com.mm';
+const ENQUIRY_CC = 'cheesy.bites11@gmail.com,linkhant98@gmail.com';
 
 // ===== Product cards (no prices) =====
 // Product listing (no prices). `crop` picks one pack out of the wholesale poster.
