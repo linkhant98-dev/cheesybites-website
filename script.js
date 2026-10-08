@@ -102,7 +102,7 @@ function setLang(next) {
     if (lang === 'my') url.searchParams.set('lang', 'my'); else url.searchParams.delete('lang');
     history.replaceState(null, '', url);
     const canon = document.querySelector('link[rel="canonical"]');
-    if (canon) canon.href = 'https://linkhant98-dev.github.io/cheesybites-website/' + (lang === 'my' ? '?lang=my' : '');
+    if (canon) canon.href = 'https://www.cheesybites.com.mm/' + (lang === 'my' ? '?lang=my' : '');
   } catch {}
   i18nEls.forEach(el => {
     const t = lang === 'my' ? I18N_MY[el.dataset.i18n] : undefined;

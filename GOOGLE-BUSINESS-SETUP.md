@@ -25,7 +25,7 @@ Only the business owner can create it, because Google verifies ownership. It tak
 | Postal code | `11191` |
 | Do you also serve customers outside this location? | **Yes**, add Yangon (delivery via foodpanda) |
 | Phone number | *(your shop phone number)* |
-| Website | `https://linkhant98-dev.github.io/cheesybites-website/` |
+| Website | `https://www.cheesybites.com.mm/` |
 
 4. Drag the map pin exactly onto the Taw Win Center shop.
 

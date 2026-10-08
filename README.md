@@ -87,7 +87,7 @@ The site includes:
 
 **Get indexed on Google (one time, by the owner):**
 1. Go to https://search.google.com/search-console and click **Add property → URL prefix**.
-2. Enter `https://linkhant98-dev.github.io/cheesybites-website/`.
+2. Enter `https://www.cheesybites.com.mm/`.
 3. Choose **HTML tag** verification and copy the `content="…"` code. Send it to your web developer, who adds it to `index.html` and publishes.
 4. Click **Verify**, then go to **Sitemaps** and submit `sitemap.xml`.
 5. Under **URL inspection**, test the home page and the `?lang=my` page and click **Request indexing**.
