@@ -22,7 +22,7 @@ Only the business owner can create it, because Google verifies ownership. It tak
 | Street address | `No.45, Pyay Road, B-19/20/22, Taw Win Center` |
 | Township / City | `Dagon Township, Yangon` |
 | Region | `Yangon Region` |
-| Postal code | `11111` |
+| Postal code | `11191` |
 | Do you also serve customers outside this location? | **Yes**, add Yangon (delivery via foodpanda) |
 | Phone number | *(your shop phone number)* |
 | Website | `https://linkhant98-dev.github.io/cheesybites-website/` |
