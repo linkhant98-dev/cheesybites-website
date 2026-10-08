@@ -1,10 +1,10 @@
 # Only the website itself is deployed to www.cheesybites.com.mm.
 # Never publish the private franchise guide, sources, docs or helper scripts.
-private
-brochure
-README.md
-GOOGLE-BUSINESS-SETUP.md
-start.bat
-start.command
-.github
-_site
+/private
+/brochure
+/README.md
+/GOOGLE-BUSINESS-SETUP.md
+/start.bat
+/start.command
+/.github
+/_site
